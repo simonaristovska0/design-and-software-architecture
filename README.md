@@ -47,7 +47,7 @@ Initially, we attempted to extract data by downloading XLS files for each compan
     |-- .venv/                    # Virtual environment (optional, not included in Git)
     |-- Data/                     # Folder containing the extracted data (CSV files)
     |-- code.py   # Main script for web scraping and data extraction
-    |-- codeWithDownloading.py    # Initial script for handling data downloading (legacy)
+    |-- legacy-codeWithDownloading.py    # Initial script for handling data downloading (legacy)
 ```
 
 ## Installation
@@ -77,7 +77,7 @@ Initially, we attempted to extract data by downloading XLS files for each compan
 
    This script will scrape the financial data, process it, and store it in CSV files within the `Data` directory.
 
-   **Note**: The `codeWithDownloading.py` script was an initial approach for extracting data by downloading XLS files. This method was found to be slower and less efficient than the web scraping approach. You should only run `code.py`.
+   **Note**: The `legacy-codeWithDownloading.py` script was an initial approach for extracting data by downloading XLS files. This method was found to be slower and less efficient than the web scraping approach. You should only run `code.py`.
 
 ## Dependencies
 
