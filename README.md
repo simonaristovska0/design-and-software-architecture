@@ -1,6 +1,6 @@
 # Design and Software Architecture: First homework - Data Extraction
 
-This repository contains the first homework, developed as a part of the Design and Software Architecture course. This project focuses on extracting historical stock data using web scraping techniques while adhering to robust software design practices.
+This repository contains the first homework, developed as a part of the Design and Software Architecture course. This project focuses on extracting historical stock data from the macedonian stock exhange website using web scraping techniques while adhering to robust software design practices.
 
 ## Table of Contents
 
