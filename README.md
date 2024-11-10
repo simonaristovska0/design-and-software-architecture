@@ -17,11 +17,11 @@ This repository contains a project developed for the Design and Software Archite
 
 The goal of this project is to scrape financial data from a public financial website and store the data in CSV format for further analysis.
 
-### Main Approach
+### Main Approach - code.py this is the 
 
 Our main approach for data extraction is web scraping using `BeautifulSoup` and `requests`. This method provides greater flexibility and improved performance compared to our initial strategy.
 
-### Initial Approach
+### Initial Approach - 
 
 Initially, we attempted to extract data by downloading XLS files for each company. However, this approach proved to be slow and inefficient, especially when dealing with a large volume of data. Transitioning to web scraping significantly enhanced performance and streamlined the data extraction process.
 
@@ -54,7 +54,7 @@ Due to GitHub's restriction on publishing repositories with more than 100 files,
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/simonaristovska0/design-software-architecture-data-extraction.git
+   git clone https://github.com/yourusername/design-software-architecture-data-extraction.git
    cd design-software-architecture-data-extraction
    ```
 2. **Set Up a Virtual Environment**:
@@ -69,13 +69,15 @@ Due to GitHub's restriction on publishing repositories with more than 100 files,
 
 ## Usage
 
-1. **Run the Main Web Scraping Script**:
+1. **Run the Web Scraping Script**:
 
    ```bash
-   python code.py
+   python codeWithScraping.py
    ```
 
    This script will scrape the financial data, process it, and store it in CSV files within the `Data` directory.
+
+   **Note**: The `codeWithDownloading.py` script was an initial approach for extracting data by downloading XLS files. This method was found to be slower and less efficient than the web scraping approach. You should only run `codeWithScraping.py` for the best performance.
 
 ## Dependencies
 
