@@ -4,7 +4,7 @@ This repository contains the first homework, developed as a part of the Design a
 
 ## Table of Contents
 
-- This repository contains a project developed for the Design and Software Architecture course.
+This repository contains a project developed for the Design and Software Architecture course.
   
 - [Project Overview](#project-overview)
 - [Features](#features)
