@@ -25,6 +25,12 @@ Our main approach for data extraction is web scraping using `BeautifulSoup` and 
 
 Initially, we attempted to extract data by downloading XLS files for each company. However, this approach proved to be slow and inefficient, especially when dealing with a large volume of data. Transitioning to web scraping significantly enhanced performance and streamlined the data extraction process.
 
+### Data Folder Access
+Due to GitHub's restriction on publishing repositories with more than 100 files, we could not include the `Data` folder containing the CSV files directly in this repository. Instead, a link to access the `Data` folder is provided below:
+
+[https://drive.google.com/drive/folders/1wbqD0brOd2zOeGI20cH6EgqELYIge7Fz](#)  
+*Note: This link is necessary as part of the homework task requirements.*
+
 ## Features
 
 - **Web Scraping**: Uses `BeautifulSoup` and `requests` for efficient data extraction from the target website.
