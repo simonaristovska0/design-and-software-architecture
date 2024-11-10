@@ -77,7 +77,7 @@ Initially, we attempted to extract data by downloading XLS files for each compan
 
    This script will scrape the financial data, process it, and store it in CSV files within the `Data` directory.
 
-   **Note**: The `initial_code_poor_performance.py` script was an initial approach for extracting data by downloading XLS files. This method was found to be slower and less efficient than the web scraping approach. You should only run `code.py`.
+   **Note**: The `initial_code_poor_performance.py` script was an initial approach for extracting data by downloading XLS files. This method was found to be slower and less efficient than the web scraping approach. You should only run `main_code.py`.
 
 ## Dependencies
 
