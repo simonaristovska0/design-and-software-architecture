@@ -46,7 +46,7 @@ Due to GitHub's restriction on publishing repositories with more than 100 files,
 |-- Домашна 1 [Домашна 1]    # Main project folder
     |-- .venv/                    # Virtual environment (optional, not included in Git)
     |-- Data/                     # Folder containing the extracted data (CSV files)
-    |-- mainCodeWithScraping.py   # Main script for web scraping and data extraction
+    |-- code.py   # Main script for web scraping and data extraction
     |-- codeWithDownloading.py    # Initial script for handling data downloading (legacy)
 ```
 
@@ -72,7 +72,7 @@ Due to GitHub's restriction on publishing repositories with more than 100 files,
 1. **Run the Main Web Scraping Script**:
 
    ```bash
-   python mainCodeWithScraping.py
+   python code.py
    ```
 
    This script will scrape the financial data, process it, and store it in CSV files within the `Data` directory.
