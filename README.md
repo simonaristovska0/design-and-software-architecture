@@ -15,7 +15,7 @@ This repository contains a project developed for the Design and Software Archite
 
 ## Project Overview
 
-The goal of this project is to scrape financial data from a public financial website and store the data in CSV format for further analysis.
+The goal of this project is to scrape financial data from a public financial website ([https://www.mse.mk/mk](#) and store the data in CSV format for further analysis.
 
 ### Main Approach - main_code.py
 
