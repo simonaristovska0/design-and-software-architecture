@@ -48,7 +48,7 @@ Initially, we attempted to extract data by downloading XLS files for each compan
     |-- Data/                     # Folder containing the extracted data (CSV files), will be created after executing the main_code.py file
     |-- main_code.py   # Main script for web scraping and data extraction
     |-- initial_code_poor_performance.py    # Initial script for handling data downloading (legacy)
-    |-- Execution-photo.png    # Contains the photo of the total runtime from the execution
+    |-- benchmark.png    # Contains the photo of the total runtime from the execution
     |-- requirements.txt    # All dependencies for running the program
     |-- Software requirements specification.pdf    # The SRS for this project
 ```
