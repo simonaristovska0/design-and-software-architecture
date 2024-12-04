@@ -38,6 +38,8 @@ The project includes:
 ---
 
 ## Project Structure
+
+```
 |-- Домашна 2 [Домашна 2]    # Main project folder
     |-- .venv/                    # Virtual environment (optional, not included in Git)
     |-- architectures/            # Folder containing system architecture documentation
@@ -54,6 +56,7 @@ The project includes:
     |-- technical-prototype/       # Folder containing the technical prototype
         |-- proekt/                       # Project folder
         |-- prototype.mp4                 # Video demonstration of the prototype
+```
 
 ---
 
