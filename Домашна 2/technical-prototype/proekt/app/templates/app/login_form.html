@@ -1,0 +1,55 @@
+<!--<!DOCTYPE html>-->
+<!--{% load static %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Најави се</title>-->
+<!--    <link rel="stylesheet" href="{% static "app/login_page.css" %}"/>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container">-->
+<!--        <div class="login-form">-->
+<!--            <h1>Најави се</h1>-->
+<!--            <form>-->
+<!--                <div class="input-group" >-->
+<!--                    <label for="email">Email адреса</label>-->
+<!--                    <input type="email" id="email" placeholder="Внесете email">-->
+<!--                </div>-->
+<!--                <div class="input-group">-->
+<!--                    <label for="password">Лозинка</label>-->
+<!--                    <div class="password-field">-->
+<!--                        <input type="password" id="password" placeholder="Внесете лозинка">-->
+<!--                        <button type="button" class="toggle-password">Откриј</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="agreement">-->
+<!--                    <p style="width: 400px"></p>-->
+<!--                </div>-->
+<!--                <button type="submit" class="btn-submit">Најави се</button>-->
+<!--                <div class="links">-->
+<!--                    <p>Немаш профил? <a href="{% url "register-page"%}">Регистрирај се</a></p>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
+
+<html>
+
+    <h1> Login here </h1>
+
+    <form method="POST" autocomplete="off">
+
+        {% csrf_token %}
+
+        {{loginform.as_p}}
+
+        <input type="submit" value="Login"/>
+
+
+    </form>
+
+
+</html>
