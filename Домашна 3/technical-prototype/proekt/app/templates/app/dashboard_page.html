@@ -1,0 +1,123 @@
+<!--{% load static %}-->
+<!--<html>-->
+<!--<h1>Logged in user DASHBOARD</h1>-->
+<!--    <head>-->
+<!--            <meta charset="UTF-8">-->
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--        <link rel="stylesheet" href="{% static "app/dashboard.css" %}"/>-->
+<!--    </head>-->
+
+
+<!--    <a href="{% url 'user-logout' %}"> Logout here </a>-->
+
+
+<!--    <div class = "container">-->
+<!--        <div class="images">-->
+<!--            <img src="data:image/png;base64,{{ plot_data1 }}" alt="Ценовни трендови">-->
+<!--            <img src="data:image/png;base64,{{ plot_data2 }}" alt="Ценовни трендови">-->
+<!--            <img src="data:image/png;base64,{{ plot_data3 }}" alt="Ценовни трендови">-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+
+
+<!--{% load static %}-->
+<!--<html>-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <link rel="stylesheet" href="{% static "app/dashboard.css" %}">-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Logged in user DASHBOARD</h1>-->
+<!--    <a href="{% url 'user-logout' %}">Logout here</a>-->
+
+<!--    <div class="dropdown">-->
+<!--        <label for="issuer-select">Select Issuer:</label>-->
+<!--        <select id="issuer-select">-->
+<!--            <option value="data_for_ADIN.csv">KMB</option>-->
+<!--            <option value="data_for_ALK.csv">ALK</option>-->
+<!--            <option value="data_for_ALKB.csv">ADIN</option>-->
+<!--        </select>-->
+<!--    </div>-->
+
+<!--    <div class="container">-->
+<!--        <div class="images">-->
+<!--            <img id="graph-image" src="data:image/png;base64,{{ plot_data1 }}" alt="Ценовни трендови">-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--        $(document).ready(function () {-->
+<!--            $('#issuer-select').on('change', function () {-->
+<!--                const selectedIssuer = $(this).val();-->
+<!--                $.ajax({-->
+<!--                    url: "{% url 'update-graph' %}",-->
+<!--                    method: "GET",-->
+<!--                    data: { filename: selectedIssuer },-->
+<!--                    success: function (response) {-->
+<!--                        $('#graph-image').attr('src', `data:image/png;base64,${response.plot_data}`);-->
+<!--                    },-->
+<!--                    error: function () {-->
+<!--                        alert("Error loading graph!");-->
+<!--                    }-->
+<!--                });-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "app/dashboard.css" %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Logged in user DASHBOARD</h1>
+    <a href="{% url 'user-logout' %}">Logout here</a>
+
+    <div class="dropdown">
+        <label for="issuer-select">Select Issuer:</label>
+        <select id="issuer-select">
+            <!-- Dynamically populate dropdown options -->
+            {% for file in csv_files %}
+                <option value="{{ file.full_name }}">{{ file.display_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="container">
+        <div class="images">
+            <img id="graph-image" src="data:image/png;base64,{{ plot_data }}" alt="Ценовни трендови">
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#issuer-select').on('change', function () {
+                const selectedIssuer = $(this).val();
+                $.ajax({
+                    url: "{% url 'update-graph' %}",
+                    method: "GET",
+                    data: { filename: selectedIssuer },
+                    success: function (response) {
+                        $('#graph-image').attr('src', `data:image/png;base64,${response.plot_data}`);
+                    },
+                    error: function () {
+                        alert("Error loading graph!");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
