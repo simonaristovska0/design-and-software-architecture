@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Македонска берза</title>
+    <link rel="stylesheet" href="{% static "app/starting_page.css" %}"/>
+
+</head>
+<body>
+
+<div class="navbar">
+  <div class="brand">Македонска берза</div>
+  <div>
+    <div class="nav-item login"><a href="{% url "login-page"%}" >Login</a></div>
+
+    <div class="nav-item register"><a href="{% url "register-page"%}" >Register</a></div>
+  </div>
+</div>
+
+<h2>Starting page(Not logged in User)</h2>
+    <div class = "container">
+        <div class="images">
+            <img src="data:image/png;base64,{{ plot_data1 }}" alt="Ценовни трендови">
+            <img src="data:image/png;base64,{{ plot_data2 }}" alt="Ценовни трендови">
+            <img src="data:image/png;base64,{{ plot_data3 }}" alt="Ценовни трендови">
+        </div>
+    </div>
+
+<script>
+    var firstIndex=0;
+
+    function automaticSlide(){
+        setTimeout(automaticSlide,2000)
+        var pics;
+        const img = document.querySelectorAll('img');
+        for (pics=0; pics<img.length;pics++){
+            img[pics].style.display="none";
+        }
+        firstIndex++;
+        if(firstIndex > img.length){
+            firstIndex =1;
+        }
+        img[firstIndex -1].style.display="block";
+    }
+    automaticSlide()
+</script>
+
+
+</body>
+</html>
