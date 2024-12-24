@@ -9,4 +9,7 @@ urlpatterns = [
     path("user-logout", views.user_logout, name="user-logout"),
     path('update-graph', views.UpdateGraphView.as_view(), name='update-graph'),
 
+    ##
+    path('train-model', views.TrainModelView.as_view(), name='train-model'),
+
 ]

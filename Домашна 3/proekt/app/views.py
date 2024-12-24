@@ -18,6 +18,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .vizuelizacija import kod_za_generiranje_dijagram
+from .train_model import func
 
 class StartingPageView(View):
     def get(self, request):
@@ -96,7 +97,7 @@ class DashboardPageView(LoginRequiredMixin, View):
             }
         )
 
-class UpdateGraphView(LoginRequiredMixin, View):
+class UpdateGraphView(LoginRequiredMixin, View): # tuka praime za na dropdown grafovite(prvite)
     def get(self, request):
         filename = request.GET.get('filename')
         if filename:
@@ -109,8 +110,16 @@ class UpdateGraphView(LoginRequiredMixin, View):
 
 
 
-
-
+class TrainModelView(LoginRequiredMixin, View):
+    def get(self, request):
+        filename = request.GET.get('filename')
+        if filename:
+            try:
+                plot_data = func(filename)
+                return JsonResponse({'plot_data': plot_data}, status=200)
+            except Exception as e:
+                return JsonResponse({'error': str(e)}, status=400)
+        return JsonResponse({'error': 'No filename provided'}, status=400)
 
 
 def user_logout(request):
