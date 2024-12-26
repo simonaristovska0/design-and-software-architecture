@@ -16,10 +16,19 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
+    def __init__(self, *args, **kwargs):
+        super(CreateUserForm, self).__init__(*args, **kwargs)
+        # Remove default help texts for all fields
+        for field_name in self.fields:
+            self.fields[field_name].help_text = None
 
 # - Authenticate a user (Model Form)
 
 class LoginForm(AuthenticationForm):
 
-    username = forms.CharField(widget=TextInput())
-    password = forms.CharField(widget=PasswordInput())
+    username = forms.CharField(
+        label="Корисничко име",
+        widget=TextInput())
+    password = forms.CharField(
+        label="Пасворд",
+        widget=PasswordInput())

@@ -12,4 +12,15 @@ urlpatterns = [
     ##
     path('train-model', views.TrainModelView.as_view(), name='train-model'),
 
+    path('search-results-vizuelizacija', views.SearchResultsViewVizuelizacija.as_view(), name='search-results-page-vizuelizacija'),
+    path('search-results-tehnicka', views.SearchResultsViewTehnicka.as_view(), name='search-results-page-tehnicka'),
+    path('search-results-fundamentalna', views.SearchResultsViewFundamentalna.as_view(), name='search-results-page-fundamentalna'),
+    path('search-results-predviduvanje', views.SearchResultsViewPredviduvanje.as_view(), name='search-results-page-predviduvanje'),
+
+
+
+    path('graph-data', views.get_graph_dataView.as_view(), name='graph-data'),
+
+
 ]
+

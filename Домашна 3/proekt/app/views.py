@@ -20,13 +20,30 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .vizuelizacija import kod_za_generiranje_dijagram
 from .train_model import func
 
+# class StartingPageView(View):
+#     def get(self, request):
+#         plot_data1 = kod_za_generiranje_dijagram('data_for_KMB.csv')
+#         plot_data2 = kod_za_generiranje_dijagram('data_for_ALK.csv')
+#         plot_data3 = kod_za_generiranje_dijagram('data_for_ADIN.csv')
+#         return render(request, "app/starting_page.html",{'plot_data1': plot_data1, 'plot_data2': plot_data2, 'plot_data3':plot_data3})
+
 class StartingPageView(View):
     def get(self, request):
-        plot_data1 = kod_za_generiranje_dijagram('data_for_KMB.csv')
-        plot_data2 = kod_za_generiranje_dijagram('data_for_ALK.csv')
-        plot_data3 = kod_za_generiranje_dijagram('data_for_ADIN.csv')
-        return render(request, "app/starting_page.html",{'plot_data1': plot_data1, 'plot_data2': plot_data2, 'plot_data3':plot_data3})
+        # plot_data1 = kod_za_generiranje_dijagram('data_for_KMB.csv')
+        # plot_data2 = kod_za_generiranje_dijagram('data_for_ALK.csv')
+        # plot_data3 = kod_za_generiranje_dijagram('data_for_ADIN.csv')
+        return render(request, "app/starting_page.html")
 
+class UpdateGraphView(LoginRequiredMixin, View): # tuka praime za na dropdown grafovite(prvite)
+    def get(self, request):
+        filename = request.GET.get('filename')
+        if filename:
+            try:
+                plot_data = kod_za_generiranje_dijagram(filename)
+                return JsonResponse({'plot_data': plot_data}, status=200)
+            except Exception as e:
+                return JsonResponse({'error': str(e)}, status=400)
+        return JsonResponse({'error': 'No filename provided'}, status=400)
 
 class LoginPage(View):
     def get(self, request):
@@ -65,48 +82,114 @@ class RegisterPage(View):
             return render(request, 'app/register_form.html', {'registerform': form})
 
 
-class DashboardPageView(LoginRequiredMixin, View):
+
+class SearchResultsViewTehnicka(LoginRequiredMixin,View):
+    login_url = 'login-page'
+    redirect_field_name = 'redirect_to'
+
+
+    def get(self, request):
+        query = request.GET.get('query')  # Get the search query from the request
+        # Perform any logic based on the search query (e.g., filtering data)
+        results = []  # Replace with actual logic to fetch search results
+
+        return render(request, 'app/search_result_page-tehnicka.html', {
+            'query': query,
+            'results': results,
+            "username": request.user.username
+        })
+
+class SearchResultsViewFundamentalna(LoginRequiredMixin,View):
     login_url = 'login-page'
     redirect_field_name = 'redirect_to'
 
     def get(self, request):
-        # Path to the 'Data' folder
-        data_folder_path = os.path.join(settings.BASE_DIR, 'Data')
+        query = request.GET.get('query')  # Get the search query from the request
+        # Perform any logic based on the search query (e.g., filtering data)
+        results = []  # Replace with actual logic to fetch search results
 
-        # Get all CSV file names and clean them up
-        csv_files = [
-            {
-                'full_name': file,  # Full file name
-                'display_name': file.replace("data_for_", "").replace(".csv", "")  # Cleaned display name
-            }
-            for file in os.listdir(data_folder_path)
-            if file.endswith('.csv')
-        ]
+        return render(request, 'app/search_result_page-fundamentalna.html', {
+            'query': query,
+            'results': results,
+            "username": request.user.username
+        })
 
-        # Optionally generate the first graph for the first file
-        first_file = csv_files[0]['full_name'] if csv_files else None
-        plot_data = kod_za_generiranje_dijagram(first_file) if first_file else None
+class SearchResultsViewVizuelizacija(LoginRequiredMixin,View):
+    login_url = 'login-page'
+    redirect_field_name = 'redirect_to'
 
-        # Pass the list of cleaned CSV file names and initial graph data to the template
+    def get(self, request):
+        query = request.GET.get('query')  # Get the search query from the request
+        # Perform any logic based on the search query (e.g., filtering data)
+        results = []  # Replace with actual logic to fetch search results
+
+        return render(request, 'app/search_result_page-vizuelizacija.html', {
+            'query': query,
+            'results': results,
+            "username": request.user.username
+        })
+
+class SearchResultsViewPredviduvanje(LoginRequiredMixin,View):
+    login_url = 'login-page'
+    redirect_field_name = 'redirect_to'
+
+    def get(self, request):
+        query = request.GET.get('query')  # Get the search query from the request
+        # Perform any logic based on the search query (e.g., filtering data)
+        results = []  # Replace with actual logic to fetch search results
+
+        return render(request, 'app/search_result_page-predviduvanje.html', {
+            'query': query,
+            'results': results,
+            "username": request.user.username
+        })
+
+class DashboardPageView(LoginRequiredMixin, View):
+    login_url = 'login-page'
+    redirect_field_name = 'redirect_to'# ovie mora da se navedeni za da redirektne na login-page ako ne e najaven korisnikot
+
+    def get(self, request):
         return render(
             request,
             "app/dashboard_page.html",
-            {
-                'csv_files': csv_files,
-                'plot_data': plot_data
-            }
+            {"username": request.user.username}
         )
 
-class UpdateGraphView(LoginRequiredMixin, View): # tuka praime za na dropdown grafovite(prvite)
-    def get(self, request):
-        filename = request.GET.get('filename')
-        if filename:
-            try:
-                plot_data = kod_za_generiranje_dijagram(filename)
-                return JsonResponse({'plot_data': plot_data}, status=200)
-            except Exception as e:
-                return JsonResponse({'error': str(e)}, status=400)
-        return JsonResponse({'error': 'No filename provided'}, status=400)
+# class DashboardPageView(LoginRequiredMixin, View): #OVA E PRVOBITNIOT DASHBOARD (so graf i train model kopce)
+#     login_url = 'login-page'
+#     redirect_field_name = 'redirect_to'
+#
+#     def get(self, request):
+#         # Path to the 'Data' folder
+#         data_folder_path = os.path.join(settings.BASE_DIR, 'Data')
+#
+#         # Get all CSV file names and clean them up
+#         csv_files = [
+#             {
+#                 'full_name': file,  # Full file name
+#                 'display_name': file.replace("data_for_", "").replace(".csv", "")  # Cleaned display name
+#             }
+#             for file in os.listdir(data_folder_path)
+#             if file.endswith('.csv')
+#         ]
+#
+#         # Optionally generate the first graph for the first file
+#         first_file = csv_files[0]['full_name'] if csv_files else None
+#         plot_data = kod_za_generiranje_dijagram(first_file) if first_file else None
+#
+#         # Pass the list of cleaned CSV file names and initial graph data to the template
+#         return render(
+#             request,
+#             "app/dashboard_page_prvobitno.html",
+#             {
+#                 'csv_files': csv_files,
+#                 'plot_data': plot_data
+#             }
+#         )
+
+
+
+
 
 
 
@@ -141,6 +224,12 @@ class Test(View): #ZA DIJAGRAM PRAENJE
 
 
 
-# <img src="data:image/png;base64,{{ plot_data }}" alt="Ценовни трендови">
+class get_graph_dataView(View):
+    def get(self, request):
+        kolku_denovi_unazad = request.GET.get('kolku_denovi_unazad')  # Get the search query from the request
+        issuer = request.GET.get('issuer')
+        return kod_za_generiranje_dijagram(f'data_for_{issuer}.csv',kolku_denovi_unazad)
 
+# def get_graph_data(request):
+#     return kod_za_generiranje_dijagram("data_for_KMB.csv",100)
 

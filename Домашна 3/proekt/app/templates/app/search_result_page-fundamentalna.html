@@ -1,0 +1,93 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профил - СтокС.мк</title>
+    <link rel="stylesheet" href="{% static "app/search_result_page.css" %}">
+</head>
+
+
+<body>
+<!-- Sidebar -->
+<div class="sidebar">
+    {#    href="{% static "app/dashboard.css" %}"#}
+    <img src="{% static "app/images/logo.png" %}" alt="СтокС.мк">
+    <nav>
+
+        <a href="{% url 'starting-page' %}">Почетна</a>
+        <a href="#">Омилени(ne raboti)</a>
+        <a href="#">Профил(ne raboti)</a>
+        <a href="{% url 'user-logout' %}">Одјави се</a>
+    </nav>
+</div>
+
+
+<div class="header-container">
+    <div class="header-bar">
+        <div class="header-links">
+            <a href="{% url 'search-results-page-vizuelizacija' %}?query={{ query }}" class="header-link">Визуелизација</a>
+            <a href="{% url 'search-results-page-tehnicka' %}?query={{ query }}" class="header-link">Техничка анализа</a>
+            <a class="active">Фундаментална анализа</a>
+            <a href="{% url 'search-results-page-predviduvanje' %}?query={{ query }}" class="header-link">Предвидување на акциите</a>
+        </div>
+        <div class="search-bar">
+            <form method="GET" action="{% url 'search-results-page-tehnicka' %}">
+                <input type="text" name="query" placeholder="Пребарај" required>
+                <button type="submit">Пребарај</button>
+            </form>
+        </div>
+        <div class="profile-container">
+            <div class="profile-icon">
+                <img src="https://via.placeholder.com/36x36" alt="Profile">
+            </div>
+            <div class="profile-name">{{ username }}</div>
+        </div>
+    </div>
+
+{#    <div class="cards-container">#}
+{#        <div class="card">#}
+{#            <div class="card-header">Цена на последна трансакција</div>#}
+{#            <div class="card-body">#}
+{#                <span class="card-value">350,897</span>#}
+{##}
+{#            </div>#}
+{#            <div class="card-footer">Од претходниот месец <span class="card-change positive">3.48%</span></div>#}
+{#            <div class="card-icon" style="background: #F5365C;"></div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#            <div class="card-header">%пром</div>#}
+{#            <div class="card-body">#}
+{#                <span class="card-value">2,356</span>#}
+{##}
+{#            </div>#}
+{#            <div class="card-footer">Од претходниот месец <span class="card-change positive">3.48%</span></div>#}
+{#            <div class="card-icon" style="background: #FB6340;"></div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#            <div class="card-header">Вкупен промет</div>#}
+{#            <div class="card-body">#}
+{#                <span class="card-value">924</span>#}
+{##}
+{#            </div>#}
+{#            <div class="card-footer">Од претходниот месец <span class="card-change positive">1.10%</span></div>#}
+{#            <div class="card-icon" style="background: #FFD600;"></div>#}
+{#        </div>#}
+{#    </div>#}
+
+<h1>SEGA SME VO FUNDAMENTALNA</h1>
+<h1>Резултати за: "{{ query }}"</h1>
+</div>
+
+
+<!-- Footer -->
+{#<div class="footer">#}
+{#  © 2024 СтокС.мк#}
+{#</div>#}
+</body>
+</html>
+
+
+{# - ---- -- -- -- -- -- - - - - - - - - - -- -- - - - - -  - - - - - - -  - -- - - - - -- - -  - -- - #}

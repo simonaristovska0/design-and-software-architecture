@@ -1,4 +1,139 @@
-<!DOCTYPE html>
+{#<!DOCTYPE html>#}
+{#{% load static %}#}
+{#<html lang="mk">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Македонска берза</title>#}
+{#    <link rel="stylesheet" href="{% static "app/starting_page.css" %}"/>#}
+{##}
+{#</head>#}
+{#<body>#}
+{##}
+{#<div class="navbar">#}
+{#  <div class="brand">Македонска берза</div>#}
+{#  <div>#}
+{#    <div class="nav-item login"><a href="{% url "login-page"%}" >Login</a></div>#}
+{##}
+{#    <div class="nav-item register"><a href="{% url "register-page"%}" >Register</a></div>#}
+{#  </div>#}
+{#</div>#}
+{##}
+{#<h2>Starting page(Not logged in User)</h2>#}
+{#    <div class = "container">#}
+{#        <div class="images">#}
+{#            <img src="data:image/png;base64,{{ plot_data1 }}" alt="Ценовни трендови">#}
+{#            <img src="data:image/png;base64,{{ plot_data2 }}" alt="Ценовни трендови">#}
+{#            <img src="data:image/png;base64,{{ plot_data3 }}" alt="Ценовни трендови">#}
+{#        </div>#}
+{#    </div>#}
+
+{#<script>#}
+{#    var firstIndex=0;#}
+{##}
+{#    function automaticSlide(){#}
+{#        setTimeout(automaticSlide,2000)#}
+{#        var pics;#}
+{#        const img = document.querySelectorAll('img');#}
+{#        for (pics=0; pics<img.length;pics++){#}
+{#            img[pics].style.display="none";#}
+{#        }#}
+{#        firstIndex++;#}
+{#        if(firstIndex > img.length){#}
+{#            firstIndex =1;#}
+{#        }#}
+{#        img[firstIndex -1].style.display="block";#}
+{#    }#}
+{#    automaticSlide()#}
+{#</script>#}
+{##}
+{##}
+{#</body>#}
+{#</html>#}
+{#KODOT GORE E OD TEHNICKIOT PROTOTIP#}
+{# - -- - -- - -- - -- - - - - -- -- - -- - -- - --  -- - -- - -- -- - - -#}
+
+{#<!DOCTYPE html> OVAA E DOBRO NADOLE SAMO SO GRDI KOPCINJA#}
+{#{% load static %}#}
+{#<html lang="mk">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Македонска берза</title>#}
+{#    <link rel="stylesheet" href="{% static "app/starting_page.css" %}"/>#}
+{#    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>#}
+{#</head>#}
+{#<body>#}
+{#<div class="navbar">#}
+{#  <div class="brand">Македонска берза</div>#}
+{#  <div>#}
+{#    <div class="nav-item login"><a href="{% url "login-page" %}" >Login</a></div>#}
+{#    <div class="nav-item register"><a href="{% url "register-page" %}" >Register</a></div>#}
+{#  </div>#}
+{#</div>#}
+{##}
+{#<div class="controls">#}
+{#    <button id="btn1Year">Покажи за 1 година</button>#}
+{#    <button id="btn2Years">Покажи за 2 години</button>#}
+{#</div>#}
+{##}
+{#<canvas id="transactionsChart"></canvas>#}
+{#<script>#}
+{#    const ctx = document.getElementById('transactionsChart').getContext('2d');#}
+{#    let chartInstance; // To store the chart instance#}
+{##}
+{#    // Function to fetch and update chart data#}
+{#    function updateChart(daysBack) {#}
+{#        fetch(`graph-data?kolku_denovi_unazad=${daysBack}`)#}
+{#            .then(response => response.json())#}
+{#            .then(data => {#}
+{#                console.log(data);#}
+{#                if (chartInstance) {#}
+{#                    // Update the existing chart data#}
+{#                    chartInstance.data = data;#}
+{#                    chartInstance.update();#}
+{#                } else {#}
+{#                    // Create a new chart instance#}
+{#                    chartInstance = new Chart(ctx, {#}
+{#                        type: 'line',#}
+{#                        data: data,#}
+{#                        options: {#}
+{#                            responsive: true,#}
+{#                            plugins: {#}
+{#                                legend: {#}
+{#                                    display: true#}
+{#                                }#}
+{#                            },#}
+{#                            scales: {#}
+{#                                x: {#}
+{#                                    grid: {#}
+{#                                        display: false#}
+{#                                    }#}
+{#                                },#}
+{#                                y: {#}
+{#                                    beginAtZero: true#}
+{#                                }#}
+{#                            }#}
+{#                        }#}
+{#                    });#}
+{#                }#}
+{#            })#}
+{#            .catch(error => console.error('Error loading chart data:', error));#}
+{#    }#}
+{##}
+{#    // Event listeners for buttons#}
+{#    document.getElementById('btn1Year').addEventListener('click', () => updateChart(60));#}
+    {#document.getElementById('btn1Year').addEventListener('click', () => updateChart(365));#}
+{#    document.getElementById('btn2Years').addEventListener('click', () => updateChart(100));#}
+    {#document.getElementById('btn2Years').addEventListener('click', () => updateChart(730));#}
+{##}
+{#    // Load initial chart data (optional: default to 1 year)#}
+{#    updateChart(30);#}
+{#</script>#}
+{##}
+{#</body>#}
+{#</html>#}
+
 {% load static %}
 <html lang="mk">
 <head>
@@ -6,47 +141,279 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Македонска берза</title>
     <link rel="stylesheet" href="{% static "app/starting_page.css" %}"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
 
+        .controls button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #5E72E4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .controls button:hover {
+            background-color: #3c4dad;
+            transform: scale(1.05);
+        }
+
+        .controls button.active {
+            background-color: #F56B8D;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 600px;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-
 <div class="navbar">
   <div class="brand">Македонска берза</div>
   <div>
-    <div class="nav-item login"><a href="{% url "login-page"%}" >Login</a></div>
-
-    <div class="nav-item register"><a href="{% url "register-page"%}" >Register</a></div>
+    <div class="nav-item login"><a href="{% url "login-page" %}" >Login</a></div>
+    <div class="nav-item register"><a href="{% url "register-page" %}" >Register</a></div>
   </div>
 </div>
 
-<h2>Starting page(Not logged in User)</h2>
-    <div class = "container">
-        <div class="images">
-            <img src="data:image/png;base64,{{ plot_data1 }}" alt="Ценовни трендови">
-            <img src="data:image/png;base64,{{ plot_data2 }}" alt="Ценовни трендови">
-            <img src="data:image/png;base64,{{ plot_data3 }}" alt="Ценовни трендови">
-        </div>
-    </div>
+<div class="controls">
+    <button id="btn1Month">Покажи за 1 месец</button>
+    <button id="btn1Year">Покажи за 1 година</button>
+    <button id="btn2Years">Покажи за 2 години</button>
+    <button id="btnAll">Покажи сѐ</button>
+</div>
 
+<canvas id="transactionsChart"></canvas>
 <script>
-    var firstIndex=0;
+    const ctx = document.getElementById('transactionsChart').getContext('2d');
+    let chartInstance; // To store the chart instance
 
-    function automaticSlide(){
-        setTimeout(automaticSlide,2000)
-        var pics;
-        const img = document.querySelectorAll('img');
-        for (pics=0; pics<img.length;pics++){
-            img[pics].style.display="none";
-        }
-        firstIndex++;
-        if(firstIndex > img.length){
-            firstIndex =1;
-        }
-        img[firstIndex -1].style.display="block";
+    const btn1Month = document.getElementById('btn1Month');
+    const btn1Year = document.getElementById('btn1Year');
+    const btn2Years = document.getElementById('btn2Years');
+    const btnAll = document.getElementById('btnAll');
+
+    function updateChart(daysBack,issuer, skipSampling = false) {
+        fetch(`graph-data?kolku_denovi_unazad=${daysBack}&issuer=${issuer}`)
+            .then(response => response.json())
+            .then(data => {
+                // Sort the data to ensure the lowest date is on the left
+                const sortedData = {
+                    labels: data.labels.reverse(),
+                    datasets: data.datasets.map(dataset => ({
+                        ...dataset,
+                        data: dataset.data.reverse()
+                    }))
+                };
+
+                let finalData = sortedData;
+
+                // If sampling is not skipped, reduce the number of points displayed
+                if (!skipSampling) {
+                    const sampledLabels = sortedData.labels.filter((_, index) => index % Math.ceil(sortedData.labels.length / 10) === 0);
+                    const sampledData = sortedData.datasets[0].data.filter((_, index) => index % Math.ceil(sortedData.labels.length / 10) === 0);
+
+                    // Ensure the last point is always included
+                    if (sampledLabels[sampledLabels.length - 1] !== sortedData.labels[sortedData.labels.length - 1]) {
+                        sampledLabels.push(sortedData.labels[sortedData.labels.length - 1]);
+                        sampledData.push(sortedData.datasets[0].data[sortedData.datasets[0].data.length - 1]);
+                    }
+
+                    finalData = {
+                        labels: sampledLabels,
+                        datasets: sortedData.datasets.map(dataset => ({
+                            ...dataset,
+                            data: sampledData
+                        }))
+                    };
+                }
+
+                if (chartInstance) {
+                    chartInstance.data = finalData;
+                    chartInstance.update();
+                } else {
+                    chartInstance = new Chart(ctx, {
+                        type: 'line',
+                        data: finalData,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: true
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    grid: {
+                                        display: false
+                                    },
+                                    ticks: {
+                                        callback: function(value, index, values) {
+                                            return this.getLabelForValue(value);
+                                        }
+                                    }
+                                },
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                }
+
+                // Update button styles
+                [btn1Month, btn1Year, btn2Years, btnAll].forEach(btn => btn.classList.remove('active'));
+                if (daysBack === 30) btn1Month.classList.add('active');
+                else if (daysBack === 365) btn1Year.classList.add('active');
+                else if (daysBack === 730) btn2Years.classList.add('active');
+                else btnAll.classList.add('active');
+            })
+            .catch(error => console.error('Error loading chart data:', error));
     }
-    automaticSlide()
+
+    btn1Month.addEventListener('click', () => updateChart(30,'KMB', true));
+    btn1Year.addEventListener('click', () => updateChart(365,'KMB'));
+    btn2Years.addEventListener('click', () => updateChart(730,'KMB'));
+    btnAll.addEventListener('click', () => updateChart(2500,'KMB'));
+
+    // Load initial chart data (default to 1 year)
+    updateChart(30,'KMB',true);
 </script>
-
-
 </body>
 </html>
+
+
+
+{# - - - - - - - - - - - - - -- - - - - -- - - #}
+{#<!DOCTYPE html>#}
+{#{% load static %}#}
+{#<html lang="mk">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Македонска берза</title>#}
+{#    <link rel="stylesheet" href="{% static "app/starting_page.css" %}">#}
+{#    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<div class="navbar">#}
+{#  <div class="brand">Македонска берза</div>#}
+{#  <div>#}
+{#    <div class="nav-item login"><a href="{% url "login-page"%}" >Login</a></div>#}
+{#    <div class="nav-item register"><a href="{% url "register-page"%}" >Register</a></div>#}
+{#  </div>#}
+{#</div>#}
+{##}
+{#<h2>Starting page (Not logged in User)</h2>#}
+{#<pre>{{ plot_data1|safe }}</pre>#}
+{#    <canvas id="chart1" width="400" height="200"></canvas>#}
+{#    <canvas id="chart2" width="400" height="200"></canvas>#}
+{#    <canvas id="chart3" width="400" height="200"></canvas>#}
+{##}
+{#<script>#}
+{#    // Pass JSON data from the backend#}
+{#    const plotData1 = {{ plot_data1|safe }};#}
+{#    const plotData2 = {{ plot_data2|safe }};#}
+{#    const plotData3 = {{ plot_data3|safe }};#}
+{##}
+{#    function createChart(ctx, plotData) {#}
+{#        new Chart(ctx, {#}
+{#            type: 'line',#}
+{#            data: {#}
+{#                labels: plotData.labels, // Ensure labels are correctly mapped#}
+{#                datasets: plotData.datasets // Ensure datasets are an array#}
+{#            },#}
+{#            options: {#}
+{#                responsive: true,#}
+{#                plugins: {#}
+{#                    legend: {#}
+{#                        display: true#}
+{#                    }#}
+{#                },#}
+{#                scales: {#}
+{#                    x: {#}
+{#                        grid: {#}
+{#                            display: false#}
+{#                        }#}
+{#                    },#}
+{#                    y: {#}
+{#                        beginAtZero: true#}
+{#                    }#}
+{#                }#}
+{#            }#}
+{#        });#}
+{#    }#}
+{##}
+{#    // Create charts#}
+{#    createChart(document.getElementById('chart1').getContext('2d'), plotData1);#}
+{#    createChart(document.getElementById('chart2').getContext('2d'), plotData2);#}
+{#    createChart(document.getElementById('chart3').getContext('2d'), plotData3);#}
+{#    console.log("Canvas 1:", document.getElementById('chart1'));#}
+{#console.log("Canvas 2:", document.getElementById('chart2'));#}
+{#console.log("Canvas 3:", document.getElementById('chart3'));#}
+{#console.log("Plot Data 1:", plotData1);#}
+{#console.log("Plot Data 2:", plotData2);#}
+{#console.log("Plot Data 3:", plotData3);#}
+{#</script>#}
+{#<script>#}
+{#    // Pass JSON data from the backend#}
+{#    const plotData1 = {{ plot_data1|safe }};#}
+{#    const plotData2 = {{ plot_data2|safe }};#}
+{#    const plotData3 = {{ plot_data3|safe }};#}
+{##}
+{#    function createChart(ctx, data, label) {#}
+{#        new Chart(ctx, {#}
+{#            type: 'line',#}
+{#            data: {#}
+{#                labels: data.labels,#}
+{#                datasets: [{#}
+{#                    label: label,#}
+{#                    data: data.data,#}
+{#                    borderColor: '#5E72E4',#}
+{#                    borderWidth: 2,#}
+{#                    fill: false#}
+{#                }]#}
+{#            },#}
+{#            options: {#}
+{#                responsive: true,#}
+{#                plugins: {#}
+{#                    legend: {#}
+{#                        display: true#}
+{#                    }#}
+{#                },#}
+{#                scales: {#}
+{#                    x: {#}
+{#                        grid: {#}
+{#                            display: false#}
+{#                        }#}
+{#                    },#}
+{#                    y: {#}
+{#                        beginAtZero: true#}
+{#                    }#}
+{#                }#}
+{#            }#}
+{#        });#}
+{#    }#}
+{##}
+{#    // Create charts#}
+{#    createChart(document.getElementById('chart1').getContext('2d'), plotData1, 'KMB Просечна цена');#}
+{#    createChart(document.getElementById('chart2').getContext('2d'), plotData2, 'ALK Просечна цена');#}
+{#    createChart(document.getElementById('chart3').getContext('2d'), plotData3, 'ADIN Просечна цена');#}
+{#</script>#}
+{##}
+{#</body>#}
+{#</html>#}

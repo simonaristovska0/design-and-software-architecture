@@ -1,0 +1,70 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "app/dashboard.css" %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Logged in user DASHBOARD</h1>
+    <a href="{% url 'user-logout' %}">Logout here</a>
+
+    <div class="dropdown">
+        <label for="issuer-select">Select Issuer:</label>
+        <select id="issuer-select">
+            <!-- Dynamically populate dropdown options -->
+            {% for file in csv_files %}
+                <option value="{{ file.full_name }}">{{ file.display_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="container">
+        <div class="images">
+            <img id="graph-image" src="data:image/png;base64,{{ plot_data }}" alt="Ценовни трендови">
+        </div>
+        <div class="train-model">
+            <button id="train-model-btn">Train Model</button>
+{#            <img id="trained-model-image" src="" alt="Trained Model Output" style="display:block; margin-top:20px; width:100%; max-width:800px; height:auto;">#}
+            <img id="trained-model-image" src="" alt="Trained Model Output" style="display:block; max-width:800px; height:auto;">
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#issuer-select').on('change', function () {
+                const selectedIssuer = $(this).val();
+                $.ajax({
+                    url: "{% url 'update-graph' %}",
+                    method: "GET",
+                    data: { filename: selectedIssuer },
+                    success: function (response) {
+                        $('#graph-image').attr('src', `data:image/png;base64,${response.plot_data}`);
+                    },
+                    error: function () {
+                        alert("Error loading graph!");
+                    }
+                });
+            });
+
+
+            $('#train-model-btn').on('click', function () {
+                const selectedIssuer = $('#issuer-select').val(); // Get selected issuer
+                $.ajax({
+                    url: "{% url 'train-model' %}", // URL for training the model
+                    method: "GET", // Use GET as per your requirement
+                    data: { filename: selectedIssuer }, // Pass selected issuer code
+                    success: function (response) {
+                        {#$('#trained-model-image').attr('src', `data:image/png;base64,${response.trained_plot}`).show();#}
+                        $('#trained-model-image').attr('src', `data:image/png;base64,${response.plot_data}`);
+                    },
+                    error: function () {
+                        alert("Error training the model!");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

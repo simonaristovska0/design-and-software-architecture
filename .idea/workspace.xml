@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="00f8e045-1ca5-4d42-80ef-37d0bd642538" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Домашна 3/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/architectures/Conceptual Architecture.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/architectures/Execution Architecture.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/architectures/Implementation Architecture.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/mockups/homepage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/mockups/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/mockups/register.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/mockups/user-profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/mockups/user-searching-issuer/fundamental-analysis.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/mockups/user-searching-issuer/prediction.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/mockups/user-searching-issuer/technical-analysis.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/mockups/user-searching-issuer/visualization.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/mockups/welcome-user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ADIN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ALK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ALKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_AMEH.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_APTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ATPP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_AUMK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_BANA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_BGOR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_BIKF.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_BIM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_BLTU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_CBNG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_CDHV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_CEVI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_CKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_CKBKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_DEBA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_DIMI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_EDST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ELMA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ELNC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ENER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ENSA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_EUHA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_EUMK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_EVRO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_FAKM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_FERS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_FKTL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_FROT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_FUBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GALE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GDKM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GECK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GECT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GIMS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GRDN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GRNT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GRSN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GRZD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GTC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_GTRG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_IJUG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_INB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_INHO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_INOV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_INPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_INTP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_JAKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_JUSK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KARO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KDFO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KJUBI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KKST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KLST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KMB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KMPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KOMU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KONF.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KONZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KORZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KPSS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KULT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_KVAS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_LAJO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_LHND.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_LOTO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_LOZP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MAGP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MAKP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MAKS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MERM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MKSD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MLKR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MODA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MPOL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MPT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MPTE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MTUR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MZHE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_MZPU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_NEME.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_NOSK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_OBPP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_OILK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_OKTA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_OMOS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_OPFO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_OPTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ORAN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_OSPO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_OTEK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_PELK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_PGGV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_PKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_POPK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_PPIV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_PROD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_PROT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_PTRS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RADE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_REPL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RIMI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RINS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RZEK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RZIT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RZIZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RZLE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RZLV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RZTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RZUG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_RZUS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SDOM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SIL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SKON.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SKP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SLAV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SNBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SNBTO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SOLN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SPAZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SPAZP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SPOL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_SSPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_STB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_STBP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_STIL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_STOK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TAJM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TBKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TEAL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TEHN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TEL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TETE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TIKV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TKPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TKVS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TNB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TRDB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TRPS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TRUB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TSMP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TSZS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_TTKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_UNI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_USJE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_VARG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_VFPM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_VITA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_VROS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_VSC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_VTKS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ZAS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ZILU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ZILUP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ZIMS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ZKAR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ZPKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ZPOG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/Data/data_for_ZUAS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/static/app/dashboard_page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/static/app/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/static/app/login_page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/static/app/starting_page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/templates/app/dashboard_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/templates/app/login_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/templates/app/register_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/templates/app/starting_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/templates/app/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/app/vizuelizacija.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/proekt/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/proekt/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/proekt/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/proekt/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/proekt/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/proekt/templates/base_nenajaven.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Домашна 3/technical-prototype/prototype.mp4" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2qaVUdEHzSShH69amGqNW9uw3yl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "matej__branch",
+    "last_opened_file_path": "/Users/matejmitev/Desktop/DIANS/dians_github",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Домашна 3" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00f8e045-1ca5-4d42-80ef-37d0bd642538" name="Changes" comment="" />
+      <created>1734900690459</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734900690459</updated>
+      <workItem from="1734900691542" duration="374000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
