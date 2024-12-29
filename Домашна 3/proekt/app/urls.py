@@ -2,7 +2,6 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path("", views.StartingPageView.as_view(), name="starting-page"),
-    path("test", views.Test.as_view(), name="test-page"),
     path("login", views.LoginPage.as_view(), name="login-page"),
     path("register", views.RegisterPage.as_view(), name="register-page"),
     path("dashboard", views.DashboardPageView.as_view(), name="dashboard-page"),
@@ -20,7 +19,12 @@ urlpatterns = [
 
 
     path('graph-data', views.get_graph_dataView.as_view(), name='graph-data'),
+    path('table-data', views.get_table_dataView.as_view(), name='table-data'),
 
+    path('card-data', views.get_card_dataView.as_view(), name='card-data'),
 
+    path('add-to-favorites/', views.AddToFavoritesView.as_view(), name='add-to-favorites'),
+    path('get-favorites/', views.GetFavoritesView.as_view(), name='get-favorites'),
+    path('remove-from-favorites/', views.RemoveFromFavoritesView.as_view(), name='remove-from-favorites'),
 ]
 

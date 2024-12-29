@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="mk">
@@ -7,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профил - СтокС.мк</title>
     <link rel="stylesheet" href="{% static "app/search_result_page.css" %}">
+    <link rel="stylesheet" href="{% static "app/search_result_page-vizuelizacija.css" %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
 </head>
 
 
@@ -16,68 +19,113 @@
     {#    href="{% static "app/dashboard.css" %}"#}
     <img src="{% static "app/images/logo.png" %}" alt="СтокС.мк">
     <nav>
-        <a href="{% url 'starting-page' %}">Почетна</a>
-        <a href="#">Омилени(ne raboti)</a>
-        <a href="#">Профил(ne raboti)</a>
+        <a href="{% url 'dashboard-page' %}">Почетна</a>
+{#        <a href="#">Профил(ne raboti)</a>#}
         <a href="{% url 'user-logout' %}">Одјави се</a>
     </nav>
+
+    <div class="favorites-section">
+        <h3>Омилени пребарувања</h3>
+        <ul id="favorites-list"></ul>
+        <button id="add-to-favorites" class="btn btn-add" data-query="{{ query }}">Додај тековно пребарување</button>
+    </div>
 </div>
 
 
 <div class="header-container">
+
     <div class="header-bar">
         <div class="header-links">
             <a class="active">Визуелизација</a>
-            <a href="{% url 'search-results-page-tehnicka' %}?query={{ query }}" class="header-link">Техничка анализа</a>
-            <a href="{% url 'search-results-page-fundamentalna' %}?query={{ query }}" class="header-link">Фундаментална анализа</a>
-            <a href="{% url 'search-results-page-predviduvanje' %}?query={{ query }}" class="header-link">Предвидување на акциите</a>
+            <a href="{% url 'search-results-page-tehnicka' %}?query={{ query }}" class="header-link">Техничка
+                анализа</a>
+            <a href="{% url 'search-results-page-fundamentalna' %}?query={{ query }}" class="header-link">Фундаментална
+                анализа</a>
+            <a href="{% url 'search-results-page-predviduvanje' %}?query={{ query }}" class="header-link">Предвидување
+                на акциите</a>
         </div>
         <div class="search-bar">
-            <form method="GET" action="{% url 'search-results-page-tehnicka' %}">
+            <form method="GET" action="{% url 'search-results-page-vizuelizacija' %}">
                 <input type="text" name="query" placeholder="Пребарај" required>
                 <button type="submit">Пребарај</button>
             </form>
         </div>
         <div class="profile-container">
-            <div class="profile-icon">
-                <img src="https://via.placeholder.com/36x36" alt="Profile">
-            </div>
+{#            <div class="profile-icon">#}
+{#                <img src="https://via.placeholder.com/36x36" alt="Profile">#}
+{#            </div>#}
             <div class="profile-name">{{ username }}</div>
         </div>
     </div>
 
+    <h1 class="main-heading">Резултати за: "{{ query }}"</h1>
     <div class="cards-container">
-        <div class="card">
+        <div class="card" id="card-last-transaction">
             <div class="card-header">Цена на последна трансакција</div>
             <div class="card-body">
-                <span class="card-value">350,897</span>
-
+                <span class="card-value">-</span>
             </div>
-            <div class="card-footer">Од претходниот месец <span class="card-change positive">3.48%</span></div>
+            <div class="card-footer">Од претходниот месец <span class="card-change">-</span></div>
             <div class="card-icon" style="background: #F5365C;"></div>
         </div>
-        <div class="card">
+        <div class="card" id="card-percent-change">
             <div class="card-header">%пром</div>
             <div class="card-body">
-                <span class="card-value">2,356</span>
-
+                <span class="card-value">-</span>
             </div>
-            <div class="card-footer">Од претходниот месец <span class="card-change positive">3.48%</span></div>
+            <div class="card-footer">Од претходниот месец <span class="card-change">-</span></div>
             <div class="card-icon" style="background: #FB6340;"></div>
         </div>
-        <div class="card">
+        <div class="card" id="card-total-turnover">
             <div class="card-header">Вкупен промет</div>
             <div class="card-body">
-                <span class="card-value">924</span>
-
+                <span class="card-value">-</span>
             </div>
-            <div class="card-footer">Од претходниот месец <span class="card-change positive">1.10%</span></div>
+            <div class="card-footer">Од претходниот месец <span class="card-change">-</span></div>
             <div class="card-icon" style="background: #FFD600;"></div>
         </div>
     </div>
 
-<h1>SEGA SME VO VIZUELIZACIJA</h1>
-<h1>Резултати за: "{{ query }}"</h1>
+
+    <div class="controls">
+        <button id="btn1Month">Покажи за 1 месец</button>
+        <button id="btn1Year">Покажи за 1 година</button>
+        <button id="btn2Years">Покажи за 2 години</button>
+        <button id="btnAll">Покажи сѐ</button>
+        <select id="attribute-select" class="styled-select">
+            <option value="Просечна цена">Просечна цена</option>
+            <option value="%пром.">%пром.</option>
+            <option value="Количина">Количина</option>
+            <option value="Промет во БЕСТ во денари">Промет во БЕСТ во денари</option>
+            <option value="Вкупен промет во денари">Вкупен промет во денари</option>
+        </select>
+    </div>
+    <canvas id="transactionsChart"></canvas>
+    {#    <h1>Резултати за: "{{ query }}"</h1>#}
+
+
+    <!-- Table Section -->
+    <h2 class="table-heading">Табела со податоци за последни 7 дена</h2>
+    <div class="table-container">
+        <table id="data-table">
+            <thead>
+            <tr>
+                <th>Датум</th>
+                <th>Цена на последна трансакција</th>
+                <th>Мак.</th>
+                <th>Мин.</th>
+                <th>Просечна цена</th>
+                <th>%пром.</th>
+                <th>Количина</th>
+                <th>Промет во БЕСТ во денари</th>
+                <th>Вкупен промет во денари</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Data will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
@@ -86,6 +134,273 @@
 {#  © 2024 СтокС.мк#}
 {#</div>#}
 </body>
+
+
+<script>
+    const ctx = document.getElementById('transactionsChart').getContext('2d');
+    let chartInstance; // To store the chart instance
+
+    const btn1Month = document.getElementById('btn1Month');
+    const btn1Year = document.getElementById('btn1Year');
+    const btn2Years = document.getElementById('btn2Years');
+    const btnAll = document.getElementById('btnAll');
+
+    function updateChart(daysBack, issuer, skipSampling = false) {
+        const attribute = document.getElementById('attribute-select').value; // Get selected attribute
+        fetch(`graph-data?kolku_denovi_unazad=${daysBack}&issuer=${issuer}&attribute=${encodeURIComponent(attribute)}`)
+            .then(response => {
+                console.log("Response status:", response.status);
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Sort the data to ensure the lowest date is on the left
+                const sortedData = {
+                    labels: data.labels.reverse(),
+                    datasets: data.datasets.map(dataset => ({
+                        ...dataset,
+                        label: attribute,
+                        data: dataset.data.reverse()
+                    }))
+                };
+
+                let finalData = sortedData;
+
+                // If sampling is not skipped, reduce the number of points displayed
+                if (!skipSampling) {
+                    const sampledLabels = sortedData.labels.filter((_, index) => index % Math.ceil(sortedData.labels.length / 10) === 0);
+                    const sampledData = sortedData.datasets[0].data.filter((_, index) => index % Math.ceil(sortedData.labels.length / 10) === 0);
+
+                    // Ensure the last point is always included
+                    if (sampledLabels[sampledLabels.length - 1] !== sortedData.labels[sortedData.labels.length - 1]) {
+                        sampledLabels.push(sortedData.labels[sortedData.labels.length - 1]);
+                        sampledData.push(sortedData.datasets[0].data[sortedData.datasets[0].data.length - 1]);
+                    }
+
+                    finalData = {
+                        labels: sampledLabels,
+                        datasets: sortedData.datasets.map(dataset => ({
+                            ...dataset,
+                            data: sampledData
+                        }))
+                    };
+                }
+
+                if (chartInstance) {
+                    chartInstance.data = finalData;
+                    chartInstance.update();
+                } else {
+                    chartInstance = new Chart(ctx, {
+                        type: 'line',
+                        data: finalData,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: true
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    grid: {
+                                        display: false
+                                    },
+                                    ticks: {
+                                        callback: function (value, index, values) {
+                                            return this.getLabelForValue(value);
+                                        }
+                                    }
+                                },
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                }
+
+                // Update button styles
+                [btn1Month, btn1Year, btn2Years, btnAll].forEach(btn => btn.classList.remove('active'));
+                if (daysBack === 30) btn1Month.classList.add('active');
+                else if (daysBack === 365) btn1Year.classList.add('active');
+                else if (daysBack === 730) btn2Years.classList.add('active');
+                else btnAll.classList.add('active');
+            })
+            .catch(error => console.error('Error loading chart data:', error));
+    }
+
+    // Event listener for the dropdown
+    document.getElementById('attribute-select').addEventListener('change', () => {
+        updateChart(30, "{{ query }}", true); // Default to 1 month when attribute changes
+    });
+    btn1Month.addEventListener('click', () => updateChart(30, "{{ query }}", true));
+    btn1Year.addEventListener('click', () => updateChart(365, "{{ query }}"));
+    btn2Years.addEventListener('click', () => updateChart(730, "{{ query }}"));
+    btnAll.addEventListener('click', () => updateChart(2500, "{{ query }}"));
+
+    updateChart(30, "{{ query }}", true);
+
+    // OVA NADEOLE E KOD ZA TABELATA
+    const tableBody = document.getElementById('data-table').querySelector('tbody');
+
+    function updateTable(issuer) {
+        fetch(`table-data?issuer=${issuer}`)
+            .then(response => response.json())
+            .then(data => {
+                // Clear the table body
+                tableBody.innerHTML = '';
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    for (const key in row) {
+                        const td = document.createElement('td');
+                        td.textContent = row[key];
+                        tr.appendChild(td);
+                    }
+                    tableBody.appendChild(tr);
+                });
+            })
+            .catch(error => console.error('Error loading table data:', error));
+    }
+
+    updateTable("{{ query }}");
+
+    // KOD ZA KARTICKITE
+    function updateCards(issuer) {
+        fetch(`card-data?issuer=${issuer}`)
+            .then(response => response.json())
+            .then(data => {
+                // Update last transaction card
+                const lastTransactionCard = document.getElementById('card-last-transaction');
+                lastTransactionCard.querySelector('.card-value').textContent = data.lastTransactionPrice;
+                lastTransactionCard.querySelector('.card-change').textContent = data.lastTransactionChange;
+                lastTransactionCard.querySelector('.card-change').classList.toggle(
+                    'positive',
+                    data.lastTransactionChange.startsWith('+')
+                );
+                lastTransactionCard.querySelector('.card-change').classList.toggle(
+                    'negative',
+                    data.lastTransactionChange.startsWith('-')
+                );
+
+                // Update percent change card
+                const percentChangeCard = document.getElementById('card-percent-change');
+                percentChangeCard.querySelector('.card-value').textContent = data.percentChange;
+                percentChangeCard.querySelector('.card-change').textContent = data.percentChangeLastMonth;
+                percentChangeCard.querySelector('.card-change').classList.toggle(
+                    'positive',
+                    data.percentChangeLastMonth.startsWith('+')
+                );
+                percentChangeCard.querySelector('.card-change').classList.toggle(
+                    'negative',
+                    data.percentChangeLastMonth.startsWith('-')
+                );
+
+                // Update total turnover card
+                const totalTurnoverCard = document.getElementById('card-total-turnover');
+                totalTurnoverCard.querySelector('.card-value').textContent = data.totalTurnover;
+                totalTurnoverCard.querySelector('.card-change').textContent = data.totalTurnoverLastMonth;
+                totalTurnoverCard.querySelector('.card-change').classList.toggle(
+                    'positive',
+                    data.totalTurnoverLastMonth.startsWith('+')
+                );
+                totalTurnoverCard.querySelector('.card-change').classList.toggle(
+                    'negative',
+                    data.totalTurnoverLastMonth.startsWith('-')
+                );
+            })
+            .catch(error => console.error('Error loading card data:', error));
+    }
+
+    // Example initial call to populate cards
+    updateCards("{{ query }}");
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Fetch and display the user's favorite queries
+        function fetchFavorites() {
+            fetch("{% url 'get-favorites' %}")
+                .then(response => response.json())
+                .then(data => {
+                    const favoritesList = document.getElementById('favorites-list');
+                    favoritesList.innerHTML = '';
+                    data.favorites.forEach(query => {
+                        const listItem = document.createElement('li');
+
+                        // Create clickable query link
+                        const queryLink = document.createElement('a');
+                        queryLink.textContent = query;
+                        queryLink.href = `http://127.0.0.1:8000/search-results-vizuelizacija?query=${encodeURIComponent(query)}`;
+                        queryLink.style.textDecoration = 'none';
+                        queryLink.style.color = '#5e72e4';
+                        queryLink.style.fontWeight = '500';
+
+                        // Add remove button
+                        const removeButton = document.createElement('button');
+                        removeButton.textContent = 'Remove';
+                        removeButton.classList.add('btn', 'btn-remove');
+                        removeButton.addEventListener('click', (event) => {
+                            event.preventDefault(); // Prevent link click when removing
+                            removeFavorite(query);
+                        });
+
+                        listItem.appendChild(queryLink);
+                        listItem.appendChild(removeButton);
+                        favoritesList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching favorites:', error));
+        }
+
+        // Add current query to favorites
+        document.getElementById('add-to-favorites').addEventListener('click', function () {
+            const query = this.getAttribute('data-query');
+            if (!query) {
+                alert("Не постои тековно пребарување!");
+                return;
+            }
+
+            fetch("{% url 'add-to-favorites' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}",
+                },
+                body: JSON.stringify({query: query}),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        fetchFavorites(); // Refresh the favorites list
+                    } else if (data.error) {
+                    }
+                })
+                .catch(error => console.error('Error adding to favorites:', error));
+        });
+
+        // Remove query from favorites
+        function removeFavorite(query) {
+            fetch("{% url 'remove-from-favorites' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}",
+                },
+                body: JSON.stringify({query: query}),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        fetchFavorites(); // Refresh the favorites list
+                    } else if (data.error) {
+                    }
+                })
+                .catch(error => console.error('Error removing from favorites:', error));
+        }
+
+        fetchFavorites(); // Load favorites on page load
+    });
+</script>
 </html>
 
 

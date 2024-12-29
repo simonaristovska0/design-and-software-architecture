@@ -7,13 +7,186 @@
     <list default="true" id="97e83bd4-499d-4e85-87a6-70f33e0a69d5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/proekt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/proekt.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ADIN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ALK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ALKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_AMBR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_AMEH.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_APTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ATPP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_AUMK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_BANA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_BGOR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_BIKF.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_BIM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_BLTU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_CBNG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_CDHV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_CEVI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_CKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_CKBKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_DEBA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_DIMI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_EDST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ELMA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ELNC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ENER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ENSA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_EUHA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_EUMK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_EVRO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_FAKM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_FERS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_FKTL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_FROT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_FUBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GALE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GDKM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GECK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GECT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GIMS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GRDN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GRNT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GRSN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GRZD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GTC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_GTRG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_IJUG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_INB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_INDI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_INEK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_INHO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_INOV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_INPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_INTP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_JAKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_JULI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_JUSK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KARO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KDFO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KJUBI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KKFI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KKST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KLST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KMB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KMPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KOMU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KONF.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KONZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KORZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KPSS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KULT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_KVAS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_LAJO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_LHND.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_LOTO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_LOZP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MAGP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MAKP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MAKS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MERM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MKSD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MLKR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MODA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MPOL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MPT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MPTE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MTUR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MZHE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_MZPU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_NEME.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_NOSK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_OBPP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_OILK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_OKTA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_OMOS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_OPFO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_OPTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ORAN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_OSPO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_OTEK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_PELK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_PGGV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_PKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_POPK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_PPIV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_PROD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_PROT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_PTRS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RADE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_REPL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RIMI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RINS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RZEK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RZIT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RZIZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RZLE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RZLV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RZTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RZUG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_RZUS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SDOM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SIL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SKON.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SKP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SLAV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SNBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SNBTO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SOLN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SPAZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SPAZP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SPOL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_SSPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_STB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_STBP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_STIL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_STOK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TAJM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TASK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TBKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TEAL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TEHN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TEL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TETE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TIGA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TIKV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TKPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TKVS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TNB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TRDB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TRPS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TRUB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TSMP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TSZS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_TTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_UNI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_USJE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_VARG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_VFPM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_VITA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_VROS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_VSC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_VTKS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ZAS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ZILU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ZILUP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ZIMS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ZKAR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ZPKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ZPOG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ZSIL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_for_ZUAS.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/app/dashboard_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/app/dashboard_page_prvobitno.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/app/starting_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/app/starting_page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/dashboard_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/dashboard_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/login_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/login_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/register_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/register_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/starting_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/starting_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/train_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/vizuelizacija.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/vizuelizacija.py" afterDir="false" />
@@ -46,22 +219,130 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;matej__branch&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/matejmitev/Desktop/DIANS/dians_github copyTUKA/Домашна 3/proekt&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.proekt.executor": "Run",
+    "Python.extracting_issuers.executor": "Run",
+    "Python.market_data_tabela_od_mse.executor": "Run",
+    "Python.scrape_table_from_mse.executor": "Run",
+    "Python.scrape_the_data.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "matej__branch",
+    "last_opened_file_path": "/Users/matejmitev/Desktop/DIANS/dians_github copyTUKA/Домашна 3/proekt/app/templates/app",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/templates/app" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django Server.proekt">
+    <configuration name="extracting_issuers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="proekt" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fundumental_analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fundumental_analysis/extracting_issuers.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="market_data_tabela_od_mse" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="proekt" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/za_homepage" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/za_homepage/market_data_tabela_od_mse.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scrape_table_from_mse" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="proekt" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/za_homepage" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/za_homepage/scrape_table_from_mse.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scrape_the_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="proekt" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scrape_the_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="proekt" type="Python.DjangoServer" factoryName="Django server">
       <module name="proekt" />
       <option name="ENV_FILES" value="" />
@@ -69,6 +350,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="proekt.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -86,6 +368,14 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.scrape_the_data" />
+        <item itemvalue="Python.extracting_issuers" />
+        <item itemvalue="Python.scrape_table_from_mse" />
+        <item itemvalue="Python.market_data_tabela_od_mse" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -111,11 +401,21 @@
       <workItem from="1735081629488" duration="1062000" />
       <workItem from="1735110307790" duration="1258000" />
       <workItem from="1735121465159" duration="22709000" />
-      <workItem from="1735225211425" duration="5689000" />
+      <workItem from="1735225211425" duration="16911000" />
+      <workItem from="1735307386983" duration="16352000" />
+      <workItem from="1735341852273" duration="1292000" />
+      <workItem from="1735427794039" duration="723000" />
+      <workItem from="1735467372876" duration="12686000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/proekt$scrape_the_data.coverage" NAME="scrape_the_data Coverage Results" MODIFIED="1735486392407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/proekt$market_data_tabela_od_mse.coverage" NAME="market_data_tabela_od_mse Coverage Results" MODIFIED="1735476286222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/za_homepage" />
+    <SUITE FILE_PATH="coverage/proekt$extracting_issuers.coverage" NAME="extracting_issuers Coverage Results" MODIFIED="1735477016818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fundumental_analysis" />
+    <SUITE FILE_PATH="coverage/proekt$scrape_table_from_mse.coverage" NAME="scrape_table_from_mse Coverage Results" MODIFIED="1735476297096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/za_homepage" />
   </component>
 </project>
