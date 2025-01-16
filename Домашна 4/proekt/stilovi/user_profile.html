@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кориснички профил</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #F8F9FD;
+      color: #5E5D84;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .sidebar .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar .menu-item {
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      color: #797B85;
+    }
+
+    .sidebar .menu-item.active {
+      font-weight: bold;
+      color: #5E5D84;
+    }
+
+    .sidebar .menu-item img {
+      width: 20px;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+    }
+
+    .profile-header {
+      background: linear-gradient(180deg, #A9B3EF 0%, #B3A4FF 100%);
+      color: white;
+      padding: 40px 20px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .profile-header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .profile-header p {
+      font-size: 18px;
+    }
+
+    .profile-header .edit-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #AE9FFA;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .profile-info {
+      margin-top: -50px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .profile-details {
+      flex: 2;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .profile-details h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .profile-details .form-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .profile-details .form-group input,
+    .profile-details .form-group textarea {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .profile-details textarea {
+      resize: none;
+    }
+
+    .profile-picture {
+      flex: 1;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile-picture img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .profile-picture h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .profile-picture p {
+      font-size: 16px;
+      color: #797B85;
+    }
+
+    /* Notification Section */
+    .notifications {
+      margin-top: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .notifications h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .notifications .notification-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .notifications .notification-item:last-child {
+      border-bottom: none;
+    }
+
+    .notifications .notification-item span {
+      color: #5E5D84;
+      font-size: 16px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .profile-info {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <div class="menu-item active">
+      <img src="https://via.placeholder.com/20" alt="Dashboard"> Почетна
+    </div>
+    <div class="menu-item">
+      <img src="https://via.placeholder.com/20" alt="Favorites"> Омилени
+    </div>
+    <div class="menu-item">
+      <img src="https://via.placeholder.com/20" alt="Profile"> Профил
+    </div>
+    <div class="menu-item">
+      <img src="https://via.placeholder.com/20" alt="Logout"> Одјави се
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="profile-header">
+      <h1>Здраво, Симона.</h1>
+      <p>Ова е вашата профилна страница. Тука можете да ги пронајдете вашите лични информации, како и да ги уредувате истите.</p>
+      <button class="edit-btn" onclick="toggleEditMode()">Уреди го профилот</button>
+    </div>
+
+    <div class="profile-info">
+      <!-- Profile Details -->
+      <div class="profile-details">
+        <h2>Мојот профил</h2>
+        <h3>Кориснички информации</h3>
+        <div class="form-group">
+          <input type="text" id="username" placeholder="Корисничко име" value="simona.ristovska" disabled>
+          <input type="email" id="email" placeholder="Е-пошта" value="simona@example.com" disabled>
+        </div>
+        <div class="form-group">
+          <input type="text" id="firstName" placeholder="Име" value="Simona" disabled>
+          <input type="text" id="lastName" placeholder="Презиме" value="Ristovska" disabled>
+        </div>
+        <h3>Информации за контакт</h3>
+        <div class="form-group">
+          <input type="text" id="address" placeholder="Адреса" value="Ul. Dame Grave" disabled>
+        </div>
+        <div class="form-group">
+          <input type="text" id="city" placeholder="Град" value="Skopje" disabled>
+          <input type="text" id="country" placeholder="Држава" value="Macedonia" disabled>
+          <input type="text" id="zip" placeholder="Поштенски број" value="1000" disabled>
+        </div>
+        <div class="form-group">
+          <textarea id="about" rows="4" placeholder="За Мене" disabled>Студент, ентузијаст за инвестирање во акции на мк берза.</textarea>
+        </div>
+        <button class="save-btn" onclick="saveProfile()" style="display: none;">Зачувај</button>
+      </div>
+
+      <!-- Profile Picture -->
+      <div class="profile-picture">
+        <img src="https://via.placeholder.com/150" alt="Profile Picture">
+        <h3>Симона Ристовска</h3>
+        <p>Скопје, Македонија</p>
+        <p>Студент</p>
+      </div>
+    </div>
+
+    <!-- Notifications Section -->
+    <div class="notifications">
+      <h2>Известувања</h2>
+      <div class="notification-item">
+        <span>Промена на цената на акција: ABC</span>
+        <span>+5%</span>
+        <button onclick="markNotification(this)">Маркирај</button>
+      </div>
+      <div class="notification-item">
+        <span>Нова можност за инвестирање</span>
+        <span>3 дена</span>
+        <button onclick="markNotification(this)">Маркирај</button>
+      </div>
+      <div class="notification-item">
+        <span>Потсетник: Поднесете го извештајот</span>
+        <span>1 ден</span>
+        <button onclick="markNotification(this)">Маркирај</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  // Toggle edit mode
+  function toggleEditMode() {
+    const inputs = document.querySelectorAll('#username, #email, #firstName, #lastName, #address, #city, #country, #zip, #about');
+    const saveBtn = document.querySelector('.save-btn');
+    inputs.forEach(input => input.disabled = !input.disabled);
+    saveBtn.style.display = inputs[0].disabled ? 'none' : 'block';
+  }
+
+  // Save profile changes
+  function saveProfile() {
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
+    const country = document.getElementById('country').value;
+    const zip = document.getElementById('zip').value;
+    const about = document.getElementById('about').value;
+
+    alert(`Профилот е зачуван!\nИме: ${firstName} ${lastName}\nЕ-пошта: ${email}`);
+  }
+
+  // Mark notification as read
+  function markNotification(button) {
+    button.parentElement.style.opacity = '0.5';
+    button.disabled = true;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+{% load static %}
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Македонска берза</title>
+    <link rel="stylesheet" href="{% static "app/starting_page.css" %}"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #5E72E4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .controls button:hover {
+            background-color: #3c4dad;
+            transform: scale(1.05);
+        }
+
+        .controls button.active {
+            background-color: #F56B8D;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 600px;
+            height: auto;
+        }
+
+        .table-container {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .table-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #2d2d83;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Roboto', sans-serif;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background-color: #f5f5f5;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+        }
+
+        thead th {
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        tbody td {
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody td:first-child {
+            font-weight: bold;
+        }
+
+        .tables-container {
+            display: flex;
+            justify-content: space-between; /* Adjust spacing between tables */
+            gap: 20px; /* Add space between tables */
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .table-container, .sei-net-news-container {
+            flex: 1; /* Equal width for both containers */
+        }
+
+        .sei-net-news-container .scrollable-content {
+            max-height: 300px; /* Limit the height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 10px;
+            background-color: #fff; /* Match table background */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Match table shadow */
+        }
+
+        .sei-net-news-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sei-net-news-container ul li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s ease;
+        }
+
+        .sei-net-news-container ul li:hover {
+            background-color: #f9f9f9;
+        }
+
+        .sei-net-news-container ul li:last-child {
+            border-bottom: none;
+        }
+
+        .sei-net-news-container h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2d2d83;
+        }
+
+        .chart-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #5e5d84;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <div class="brand">СтокС.мк</div>
+    <div>
+        <div class="nav-item login"><a href="{% url "login-page" %}">Login</a></div>
+        <div class="nav-item register"><a href="{% url "register-page" %}">Register</a></div>
+    </div>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center; margin: 20px auto; max-width: 1200px;">
+    <!-- Controls Section -->
+    <div class="controls" style="margin-bottom: 10px; text-align: left; width: 100%; max-width: 1200px;">
+        <button id="btn1Month">Покажи за 1 месец</button>
+        <button id="btn1Year">Покажи за 1 година</button>
+        <button id="btn2Years">Покажи за 2 години</button>
+        <button id="btnAll">Покажи сѐ</button>
+    </div>
+
+    <div class="graph-and-table-container" style="display: flex; align-items: flex-start; gap: 10px;">
+        <!-- Graph Section -->
+        <div class="graph-container" style="flex: 3;">
+            <h2 class="chart-title">Просечна цена на КМБ</h2>
+            <canvas id="transactionsChart" style="width: 100%; height: 400px;"></canvas>
+        </div>
+
+        <!-- Market Summary Table Section -->
+        <div class="market-summary-container" style="flex: 2; padding-left: 20px;">
+            <h2 style="margin-bottom: 10px; color: #2d2d83">Market Summary</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                <tr>
+                    <th style="text-align: left; border-bottom: 2px solid #ddd; padding: 10px;">Field</th>
+                    <th style="text-align: left; border-bottom: 2px solid #ddd; padding: 10px;">Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in market_summary %}
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ item.Field }}</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ item.Value }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="tables-container">
+    <div class="table-container">
+        <h2>Табела на акции</h2>
+        <table>
+            <thead>
+            <tr>
+                {% for header in table_data.0.keys %}
+                    {% if header != "color" %}
+                        <th>{{ header }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in table_data %}
+                <tr>
+                    {% for key, value in row.items %}
+                        {% if key == "color" %}
+                            {# Skip the color column #}
+                        {% elif key == "Шифра" %}
+                            <td style="font-weight: bold; color: {{ row.color }};">
+                                {{ value }}
+                            </td>
+                        {% else %}
+                            <td>{{ value }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container sei-net-news-container">
+        <h2>SEI-Net News</h2>
+        <div class="scrollable-content">
+            <ul>
+                {% for news in sei_net_news %}
+                    <li>{{ news }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<footer>
+    <div style="background-color: #ffffff; padding: 40px 20px; position: relative;">
+        <div style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto;">
+            <!-- Left Graph -->
+            <canvas id="waveChart" style="max-width: 50%;"></canvas>
+
+            <!-- Center Content -->
+            <div style="text-align: center; max-width: 40%;">
+                <h1 style="font-size: 36px; color: #333; margin-bottom: 20px;">СтокС.мк</h1>
+                <p style="font-size: 16px; color: #555; line-height: 1.6;">
+                    Со најсовремени алатки и интуитивен дизајн, нашата мисија е да Ви помогнеме да ги донесете
+                    најдобрите финансиски одлуки. Без разлика дали сте искусен инвеститор или почетник,
+                    СтокС Македонија е тука за да ве води низ светот на пазарите.
+                </p>
+            </div>
+
+            <!-- Right Circular Graph -->
+            <div style="max-width: 20%; position: relative;">
+                <canvas id="donutChart" style="max-width: 100%;"></canvas>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                    <p style="font-size: 16px; color: #555; font-weight: bold;">СтокС.мк</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gray Section -->
+    <!-- Gray Footer Section -->
+    <div style="background-color: #f5f5f5; padding: 40px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+
+            <!-- Left Section -->
+            <div>
+                <h2 style="font-size: 24px; color: #333; margin-bottom: 10px;">СтокС.мк</h2>
+                <p style="font-size: 14px; color: #555;">Copyright © 2024. СтокС.мк. Сите права се задржани.</p>
+            </div>
+
+
+            <!-- Right Section -->
+            <div style="text-align: right;">
+                <a href="#"
+                   style="font-size: 14px; color: #555; text-decoration: none; display: inline-flex; align-items: center;">
+                    Врати се горе
+                    <div style="width: 30px; height: 30px; margin-left: 5px; background-color: #9370DB; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px;">
+                        ⬆
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Wave Chart (Line with gradient)
+    const waveCtx = document.getElementById('waveChart').getContext('2d');
+    const gradient = waveCtx.createLinearGradient(0, 0, 0, 300);
+    gradient.addColorStop(0, 'rgba(125, 165, 255, 0.8)');
+    gradient.addColorStop(1, 'rgba(125, 165, 255, 0)');
+
+    new Chart(waveCtx, {
+        type: 'line',
+        data: {
+            labels: Array.from({length: 30}, (_, i) => i + 1), // Example X-axis labels
+            datasets: [{
+                label: 'Sample Data',
+                data: [3, 6, 8, 10, 12, 10, 8, 6, 4, 5, 7, 10, 14, 16, 15, 13, 10, 8, 7, 9, 12, 15, 18, 20, 17, 15, 12, 10, 8, 6], // Example Y-axis data
+                borderColor: '#7DA5FF',
+                backgroundColor: gradient,
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    display: false
+                },
+                y: {
+                    display: false
+                }
+            }
+        }
+    });
+
+    // Donut Chart
+    const donutCtx = document.getElementById('donutChart').getContext('2d');
+    new Chart(donutCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Value 1', 'Value 2', 'Value 3'],
+            datasets: [{
+                data: [50, 30, 20],
+                backgroundColor: ['#7DA5FF', '#D1DAFF', '#B0C4FF']
+            }]
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                    enabled: false
+                },
+                legend: {
+                    display: false
+                }
+            },
+            cutout: '75%',
+        }
+    });
+</script>
+
+<script>
+    const ctx = document.getElementById('transactionsChart').getContext('2d');
+    let chartInstance;
+
+    const btn1Month = document.getElementById('btn1Month');
+    const btn1Year = document.getElementById('btn1Year');
+    const btn2Years = document.getElementById('btn2Years');
+    const btnAll = document.getElementById('btnAll');
+
+    function updateChart(daysBack, issuer, skipSampling = false) {
+        fetch(`graph-data?kolku_denovi_unazad=${daysBack}&issuer=${issuer}`)
+            .then(response => response.json())
+            .then(data => {
+                const sortedData = {
+                    labels: data.labels.reverse(),
+                    datasets: data.datasets.map(dataset => ({
+                        ...dataset,
+                        data: dataset.data.reverse()
+                    }))
+                };
+
+                let finalData = sortedData;
+                if (!skipSampling) {
+                    const sampledLabels = sortedData.labels.filter((_, index) => index % Math.ceil(sortedData.labels.length / 10) === 0);
+                    const sampledData = sortedData.datasets[0].data.filter((_, index) => index % Math.ceil(sortedData.labels.length / 10) === 0);
+                    if (sampledLabels[sampledLabels.length - 1] !== sortedData.labels[sortedData.labels.length - 1]) {
+                        sampledLabels.push(sortedData.labels[sortedData.labels.length - 1]);
+                        sampledData.push(sortedData.datasets[0].data[sortedData.datasets[0].data.length - 1]);
+                    }
+
+                    finalData = {
+                        labels: sampledLabels,
+                        datasets: sortedData.datasets.map(dataset => ({
+                            ...dataset,
+                            data: sampledData
+                        }))
+                    };
+                }
+
+                if (chartInstance) {
+                    chartInstance.data = finalData;
+                    chartInstance.update();
+                } else {
+                    chartInstance = new Chart(ctx, {
+                        type: 'line',
+                        data: finalData,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: true
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    grid: {
+                                        display: false
+                                    },
+                                    ticks: {
+                                        callback: function (value) {
+                                            return this.getLabelForValue(value);
+                                        }
+                                    }
+                                },
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                }
+
+                [btn1Month, btn1Year, btn2Years, btnAll].forEach(btn => btn.classList.remove('active'));
+                if (daysBack === 30) btn1Month.classList.add('active');
+                else if (daysBack === 365) btn1Year.classList.add('active');
+                else if (daysBack === 730) btn2Years.classList.add('active');
+                else btnAll.classList.add('active');
+            })
+            .catch(error => console.error('Error loading chart data:', error));
+    }
+
+    btn1Month.addEventListener('click', () => updateChart(30, 'KMB', true));
+    btn1Year.addEventListener('click', () => updateChart(365, 'KMB'));
+    btn2Years.addEventListener('click', () => updateChart(730, 'KMB'));
+    btnAll.addEventListener('click', () => updateChart(2500, 'KMB'));
+
+    updateChart(30, 'KMB', true);
+</script>
+</body>
+</html>

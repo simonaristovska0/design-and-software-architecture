@@ -1,0 +1,107 @@
+
+.favorites-section {
+    margin-top: 20px;
+    background-color: #f8f9fd;
+    padding: 15px;
+    border: 1px solid #d1e7dd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.favorites-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #5e5d84;
+    margin-bottom: 10px;
+}
+
+.favorites-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.favorites-section li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #5e5d84;
+    border-bottom: 1px solid #e2e8ff;
+}
+
+.favorites-section li:last-child {
+    border-bottom: none;
+}
+
+.favorites-section input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #d1e7dd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.favorites-section button {
+    display: inline-block;
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #5e72e4;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.favorites-section button:hover {
+    background-color: #3b5cc4;
+}
+
+.favorites-section .btn-remove {
+    background-color: #f5365c;
+    margin-left: 10px;
+}
+
+.favorites-section .btn-remove:hover {
+    background-color: #d32f45;
+}
+
+.favorites-section .btn-add {
+    background-color: #5e72e4;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make it span the full width */
+}
+
+.favorites-section .btn-add:hover {
+    background-color: #3b5cc4;
+}
+
+.favorites-section a {
+    text-decoration: none;
+    color: #5e72e4;
+    font-weight: 500;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.favorites-section a:hover {
+    color: #3b5cc4;
+}
+
+.favorites-section .btn-remove {
+    background-color: #f5365c;
+    margin-left: 10px;
+}
+
+.favorites-section .btn-remove:hover {
+    background-color: #d32f45;
+}

@@ -1,0 +1,289 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профил - СтокС.мк</title>
+    <link rel="stylesheet" href="{% static "app/search_result_page.css" %}">
+    <link rel="stylesheet" href="{% static "app/search_result_page-predviduvanje.css" %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+<!-- Sidebar -->
+<div class="sidebar">
+    {#    href="{% static "app/dashboard.css" %}"#}
+    <img src="{% static "app/images/logo.png" %}" alt="СтокС.мк">
+    <nav>
+
+        <a href="{% url 'dashboard-page' %}">Почетна</a>
+{#        <a href="#">Профил(ne raboti)</a>#}
+        <a href="{% url 'user-logout' %}">Одјави се</a>
+    </nav>
+
+    <div class="favorites-section">
+        <h3>Омилени пребарувања</h3>
+        <ul id="favorites-list"></ul>
+        <button id="add-to-favorites" class="btn btn-add" data-query="{{ query }}">Додај тековно пребарување</button>
+    </div>
+</div>
+
+
+<div class="header-container">
+    <div class="header-bar">
+        <div class="header-links">
+            <a href="{% url 'search-results-page-vizuelizacija' %}?query={{ query }}"
+               class="header-link">Визуелизација</a>
+            <a href="{% url 'search-results-page-tehnicka' %}?query={{ query }}" class="header-link">Техничка
+                анализа</a>
+            <a href="{% url 'search-results-page-fundamentalna' %}?query={{ query }}" class="header-link">Фундаментална
+                анализа</a>
+            <a class="active">Предвидување на акциите</a>
+        </div>
+        <div class="search-bar">
+            <form method="GET" action="{% url 'search-results-page-vizuelizacija' %}">
+                <input type="text" name="query" placeholder="Пребарај" required>
+                <button type="submit">Пребарај</button>
+            </form>
+        </div>
+        <div class="profile-container">
+{#            <div class="profile-icon">#}
+{#                <img src="https://via.placeholder.com/36x36" alt="Profile">#}
+{#            </div>#}
+            <div class="profile-name">{{ username }}</div>
+        </div>
+    </div>
+    <h1 class="main-heading">Резултати за: "{{ query }}"</h1>
+
+    <div id="loading-message"
+         style="text-align: center; background: #FFFAE5; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); width: 50%; margin: 20px auto;">
+        <h3>Моделот се тренира, ве молиме почекајте...</h3>
+    </div>
+
+    <div id="tmp">
+        <p class="sub-heading">Приказ на резултати од валидациско множество</p>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="transactionsChart"></canvas>
+    </div>
+
+
+    <div id="statistics-container" style="margin-top: 20px; text-align: center;">
+        <h3>Валидациски статистики</h3>
+        <p id="r2-score">R² Score: -</p>
+        <p id="mse">Mean Squared Error: -</p>
+    </div>
+    <div id="future-prediction"
+         style="display: none; text-align: center; background: #F8F9FD; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); width: 50%; margin: 20px auto;">
+        <h3>Предикција за утрешниот ден</h3>
+        <p><strong>Датум:</strong> -</p>
+        <p><strong>Предвидена просечна цена:</strong> -</p>
+    </div>
+</div>
+
+
+</body>
+
+
+<script>
+    const ctx = document.getElementById('transactionsChart').getContext('2d');
+    let chartInstance;
+
+    // Automatically fetch and update the chart on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const issuer = urlParams.get('query');
+
+        if (issuer) {
+            updateChart(issuer);
+        } else {
+            console.error('Query parameter is missing.');
+        }
+    });
+
+    function updateChart(issuer) {
+        // Show the loading message and hide results
+        document.getElementById('loading-message').style.display = 'block';
+        document.getElementById('statistics-container').style.display = 'none';
+        document.getElementById('future-prediction').style.display = 'none';
+        document.getElementById('tmp').style.display = 'none';
+        {#document.getElementById('sub-heading').style.display = 'none';#}
+
+        fetch(`train-model?issuer=${issuer}`)
+            .then(response => response.json())
+            .then(data => {
+                const finalData = {
+                    labels: data.labels,
+                    datasets: data.datasets.map(dataset => ({
+                        ...dataset,
+                        data: dataset.data,
+                        borderWidth: 2,
+                    })),
+                };
+
+                if (chartInstance) {
+                    chartInstance.data = finalData;
+                    chartInstance.update();
+                } else {
+                    chartInstance = new Chart(ctx, {
+                        type: 'line',
+                        data: finalData,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'top',
+                                },
+                            },
+                            scales: {
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Датум',
+                                        font: {
+                                            size: 14,
+                                        },
+                                    },
+                                    grid: {
+                                        display: false,
+                                    },
+                                },
+                                y: {
+                                    title: {
+                                        display: true,
+                                        text: 'Просечна цена',
+                                        font: {
+                                            size: 14,
+                                        },
+                                    },
+                                    beginAtZero: false,
+                                },
+                            },
+                        },
+                    });
+                }
+
+                // Update statistics
+                if (data.statistics) {
+                    document.getElementById('r2-score').textContent = `R² Score: ${data.statistics.r2_score}`;
+                    document.getElementById('mse').textContent = `Mean Squared Error: ${data.statistics.mean_squared_error}`;
+                } else {
+                    console.error('Statistics are missing in the JSON response.');
+                }
+
+                // Display future prediction
+                if (data.future_prediction) {
+                    const predictionContainer = document.getElementById('future-prediction');
+                    predictionContainer.innerHTML = `
+                        <h3>Предикција за утрешниот ден</h3>
+                        <p><strong>Датум:</strong> ${data.future_prediction.date}</p>
+                        <p><strong>Предвидена просечна цена:</strong> ${data.future_prediction.predicted_price.toFixed(2)}</p>
+                    `;
+                    predictionContainer.style.display = 'block';
+                } else {
+                    console.error('Future prediction is missing in the JSON response.');
+                }
+                //tuj
+                document.getElementById('loading-message').style.display = 'none';
+                document.getElementById('statistics-container').style.display = 'block';
+                document.getElementById('future-prediction').style.display = 'block';
+                document.getElementById('tmp').style.display = 'block';
+                {#document.getElementById('sub-heading').style.display = 'block';#}
+            })
+            .catch(error => console.error('Error loading chart data:', error));
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Fetch and display the user's favorite queries
+        function fetchFavorites() {
+            fetch("{% url 'get-favorites' %}")
+                .then(response => response.json())
+                .then(data => {
+                    const favoritesList = document.getElementById('favorites-list');
+                    favoritesList.innerHTML = '';
+                    data.favorites.forEach(query => {
+                        const listItem = document.createElement('li');
+
+                        // Create clickable query link
+                        const queryLink = document.createElement('a');
+                        queryLink.textContent = query;
+                        queryLink.href = `http://127.0.0.1:8000/search-results-vizuelizacija?query=${encodeURIComponent(query)}`;
+                        queryLink.style.textDecoration = 'none';
+                        queryLink.style.color = '#5e72e4';
+                        queryLink.style.fontWeight = '500';
+
+                        // Add remove button
+                        const removeButton = document.createElement('button');
+                        removeButton.textContent = 'Remove';
+                        removeButton.classList.add('btn', 'btn-remove');
+                        removeButton.addEventListener('click', (event) => {
+                            event.preventDefault(); // Prevent link click when removing
+                            removeFavorite(query);
+                        });
+
+                        listItem.appendChild(queryLink);
+                        listItem.appendChild(removeButton);
+                        favoritesList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching favorites:', error));
+        }
+
+        // Add current query to favorites
+        document.getElementById('add-to-favorites').addEventListener('click', function () {
+            const query = this.getAttribute('data-query');
+            if (!query) {
+                alert("Не постои тековно пребарување!");
+                return;
+            }
+
+            fetch("{% url 'add-to-favorites' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}",
+                },
+                body: JSON.stringify({query: query}),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        fetchFavorites(); // Refresh the favorites list
+                    } else if (data.error) {
+                    }
+                })
+                .catch(error => console.error('Error adding to favorites:', error));
+        });
+
+        // Remove query from favorites
+        function removeFavorite(query) {
+            fetch("{% url 'remove-from-favorites' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}",
+                },
+                body: JSON.stringify({query: query}),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        fetchFavorites(); // Refresh the favorites list
+                    } else if (data.error) {
+                    }
+                })
+                .catch(error => console.error('Error removing from favorites:', error));
+        }
+
+        fetchFavorites(); // Load favorites on page load
+    });
+</script>
+
+</html>
+

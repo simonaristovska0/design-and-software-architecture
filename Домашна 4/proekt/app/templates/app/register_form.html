@@ -1,0 +1,152 @@
+{#<html>#}
+{##}
+{#    <h1> Register now! </h1>#}
+{##}
+{#    <form method="POST" autocomplete="off">#}
+{##}
+{#        {% csrf_token %}#}
+{##}
+{#        {{registerform.as_p}}#}
+{##}
+{#        <input type="submit" value="Register"/>#}
+{##}
+{#    </form>#}
+{##}
+{#</html>#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(90deg, #5E72E4 0%, #825EE4 100%);
+    }
+
+    .RegisterPage {
+      width: 100%;
+      max-width: 400px;
+      background: linear-gradient(180deg, #99A9FF 0%, white 100%);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .HeaderBackground {
+      text-align: center;
+      padding: 20px 0;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .CardRegister {
+      background: #F4F5F7;
+      border-radius: 6px;
+      padding: 20px;
+      box-shadow: 0px 1px 3px rgba(50, 50, 93, 0.15);
+    }
+
+    .CardRegister input {
+      width: 100%;
+      padding: 10px 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    .CardRegister button {
+      width: 100%;
+      padding: 10px;
+      background: #5E72E4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.1);
+    }
+
+    .Footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #525F7F;
+    }
+
+    @media (min-width: 768px) {
+      .RegisterPage {
+        max-width: 600px;
+      }
+
+      .HeaderBackground {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="RegisterPage">
+  <div class="HeaderBackground">Регистрирајте се сега!</div>
+  <div class="CardRegister">
+    <h2 style="text-align: center; color: #333333;">Регистрација</h2>
+{#    <form method="POST" autocomplete="off">#}
+{#        {% csrf_token %}#}
+{#        {{ registerform.as_p }}#}
+{#        <button type="submit">Регистрирај се</button>#}
+{#    </form>#}
+
+      <form method="POST" autocomplete="off">
+    {% csrf_token %}
+    <div>
+        <label for="id_username">Корисничко име:</label>
+        {{ registerform.username }}
+        {% if registerform.username.errors %}
+            <div style="color: red;">{{ registerform.username.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <div>
+        <label for="id_email">Email адреса:</label>
+        {{ registerform.email }}
+        {% if registerform.email.errors %}
+            <div style="color: red;">{{ registerform.email.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <div>
+        <label for="id_password1">Лозинка:</label>
+        {{ registerform.password1 }}
+        {% if registerform.password1.errors %}
+            <div style="color: red;">{{ registerform.password1.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <div>
+        <label for="id_password2">Потврди лозинка:</label>
+        {{ registerform.password2 }}
+        {% if registerform.password2.errors %}
+            <div style="color: red;">{{ registerform.password2.errors|striptags }}</div>
+        {% endif %}
+    </div>
+
+    <button type="submit">Регистрирај се</button>
+</form>
+
+  </div>
+  <div class="Footer">© 2024 СтокС.мк</div>
+</div>
+</body>
+</html>
