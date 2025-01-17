@@ -2,33 +2,20 @@ import os
 from transformers import MarianMTModel, MarianTokenizer
 
 
-class TranslationStrategy:
-    """Abstract base class for translation strategies."""
-
-    def translate(self, text):
-        raise NotImplementedError("Translate method must be implemented by subclasses.")
-
-
-class MarianTranslationStrategy(TranslationStrategy):
-    """Translation strategy using MarianMT model."""
-
-    def __init__(self, model_name):
-        self.tokenizer = MarianTokenizer.from_pretrained(model_name)
-        self.model = MarianMTModel.from_pretrained(model_name)
-
-    def translate(self, text):
-        try:
-            inputs = self.tokenizer(text, return_tensors="pt", truncation=True, max_length=512)
-            translated_tokens = self.model.generate(**inputs)
-            translated_text = self.tokenizer.decode(translated_tokens[0], skip_special_tokens=True)
-            return translated_text
-        except Exception as e:
-            print(f"Error translating text: {e}")
-            return None
+def translate_text(text, model, tokenizer):
+    """Translates Macedonian text to English using Hugging Face."""
+    try:
+        inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=512)
+        translated_tokens = model.generate(**inputs)
+        translated_text = tokenizer.decode(translated_tokens[0], skip_special_tokens=True)
+        return translated_text
+    except Exception as e:
+        print(f"Error translating text: {e}")
+        return None
 
 
-def translate_files(folder_path, translation_strategy):
-    """Translates all .txt files in the given folder using the provided translation strategy."""
+def translate_files(folder_path, model, tokenizer):
+    """Translates all .txt files in the given folder."""
     for root, _, files in os.walk(folder_path):
         print(f"Processing directory: {root}")
         for file_name in files:
@@ -41,7 +28,7 @@ def translate_files(folder_path, translation_strategy):
 
                     if content.strip():  # Check if the file contains text
                         # Translate the text
-                        translated_content = translation_strategy.translate(content)
+                        translated_content = translate_text(content, model, tokenizer)
 
                         if translated_content:
                             # Save the translated content to a new file
@@ -60,10 +47,14 @@ def translate_files(folder_path, translation_strategy):
 
 
 if __name__ == "__main__":
+    # Initialize the MarianMT model and tokenizer
     model_name = "Helsinki-NLP/opus-mt-mk-en"
-    print("Loading the MarianMT translation strategy...")
-    translation_strategy = MarianTranslationStrategy(model_name)
+    print("Loading the model and tokenizer...")
+    tokenizer = MarianTokenizer.from_pretrained(model_name)
+    model = MarianMTModel.from_pretrained(model_name)
 
+    # Define the folder containing the .txt files
     pdf_downloads_folder = "pdf_downloads"
 
-    translate_files(pdf_downloads_folder, translation_strategy)
+    # Translate all files in the folder
+    translate_files(pdf_downloads_folder, model, tokenizer)

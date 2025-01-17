@@ -57,15 +57,18 @@ def rename_folders():
 
 
 def rename_txt_files(base_path, dictionary):
+    # Iterate through folders in the base_path
     for folder in os.listdir(base_path):
         folder_path = os.path.join(base_path, folder)
 
+        # Skip if not a directory
         if not os.path.isdir(folder_path):
             continue
 
+        # Check if folder matches any value in the dictionary
         matched_key = None
         for key, value in dictionary.items():
-            if folder == value or folder == key:
+            if folder == value or folder == key:  # Match either value or key
                 matched_key = key
                 break
 
@@ -73,24 +76,30 @@ def rename_txt_files(base_path, dictionary):
             print(f"Skipping folder {folder}, no match in dictionary.")
             continue
 
+        # Rename all text files in the folder
         for file_name in os.listdir(folder_path):
             file_path = os.path.join(folder_path, file_name)
 
+            # Skip non-txt files
             if not file_name.endswith('.txt'):
                 continue
 
+            # Generate the new file name
             if file_name.startswith("sentiment_"):
                 new_file_name = f"sentiment_{matched_key}_combined.txt"
             elif file_name.startswith("translated_"):
                 new_file_name = f"translated_{matched_key}_combined.txt"
             else:
+                # Default combined file name
                 new_file_name = f"{matched_key}_combined.txt"
 
             new_file_path = os.path.join(folder_path, new_file_name)
 
+            # Rename the file
             os.rename(file_path, new_file_path)
             print(f"Renamed: {file_path} -> {new_file_path}")
 
+        # Optionally, rename the folder to its key (standardized name)
         new_folder_path = os.path.join(base_path, matched_key)
         if folder_path != new_folder_path:
             os.rename(folder_path, new_folder_path)
@@ -98,8 +107,10 @@ def rename_txt_files(base_path, dictionary):
 
 
 if __name__ == "__main__":
+    # Base path where the folders are located
     base_path = os.path.join(os.path.dirname(__file__), "pdf_downloads")
 
+    # Call the rename function with the dictionary
     dictionary = rename_folders()
     rename_txt_files(base_path, dictionary)
 

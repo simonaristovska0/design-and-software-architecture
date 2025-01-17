@@ -8,6 +8,7 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 import random
 
+
 # First filter
 # Returning only issuer codes, excluding issuers
 def FILTER_1_fetch_issuer_codes():
@@ -22,6 +23,7 @@ def FILTER_1_fetch_issuer_codes():
         if not contains_digit:
             issuer_codes.append(code)
     return issuer_codes
+
 
 # Third filter
 # The third filter is accepting two arguments:
@@ -55,7 +57,7 @@ def FILTER_3_scrape_to_csv(issuer_code, od_date=date.today() - datetime.timedelt
                 full_data.extend(list_data)
         except Exception as e:
             print(f'Fail za {url}')
-            FILTER_3_scrape_to_csv(issuer_code,od_date)
+            FILTER_3_scrape_to_csv(issuer_code, od_date)
             return
 
         current_end = current_start - datetime.timedelta(days=1)

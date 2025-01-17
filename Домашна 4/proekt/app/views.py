@@ -24,18 +24,28 @@ from app.utils.indicators import (
     calculate_sma, calculate_ema, calculate_wma, calculate_hma, calculate_typical_price, calculate_roc
 )
 from app.utils.visualizations import generate_summary, generate_gauge
+import requests
 
 
 class StartingPageView(View):
     def get(self, request):
-        mse_csv_path = os.path.join(settings.BASE_DIR, "za_homepage", "mse_table.csv")
-        sei_net_csv_path = os.path.join(settings.BASE_DIR, "za_homepage", "sei_net_news_only.csv")
-        market_summary_csv_path = os.path.join(settings.BASE_DIR, "za_homepage", "market_summary.csv")
+        # API endpoints
+        mse_api_url = "http://127.0.0.1:8000/api/data/get-scrape-table/"
+        sei_net_api_url = "http://127.0.0.1:8000/api/data/get-sei-net-news/"
+        market_summary_api_url = "http://127.0.0.1:8000/api/data/get-market-summary/"
 
         mse_table_data = []
-        with open(mse_csv_path, newline='', encoding="utf-8-sig") as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
+        sei_net_news = []
+        market_summary_data = []
+
+        # Fetch data from the MSE table API
+        try:
+            mse_response = requests.get(mse_api_url)
+            mse_response.raise_for_status()
+            mse_table_data = mse_response.json()
+
+            # Add color codes to data for visualization
+            for row in mse_table_data:
                 try:
                     change = float(row["% пром."].replace(",", "."))
                     if change > 0:
@@ -46,20 +56,26 @@ class StartingPageView(View):
                         row["color"] = "#5E5DFF"  # Blue
                 except ValueError:
                     row["color"] = "#000000"  # Black
-                mse_table_data.append(row)
+        except Exception as e:
+            print(f"Error fetching MSE table data: {e}")
 
-        sei_net_news = []
-        with open(sei_net_csv_path, newline='', encoding="utf-8") as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                sei_net_news.append(row.get("News", "Unknown"))
+        # Fetch data from the SEI-Net news API
+        try:
+            sei_net_response = requests.get(sei_net_api_url)
+            sei_net_response.raise_for_status()
+            sei_net_news = sei_net_response.json()["news"]
+        except Exception as e:
+            print(f"Error fetching SEI-Net news: {e}")
 
-        market_summary_data = []
-        with open(market_summary_csv_path, newline='', encoding="utf-8") as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                market_summary_data.append(row)
+        # Fetch data from the market summary API
+        try:
+            market_summary_response = requests.get(market_summary_api_url)
+            market_summary_response.raise_for_status()
+            market_summary_data = market_summary_response.json()['data']
+        except Exception as e:
+            print(f"Error fetching market summary: {e}")
 
+        # Prepare the context for rendering the template
         context = {
             "table_data": mse_table_data,
             "sei_net_news": sei_net_news,
@@ -91,12 +107,32 @@ class LoginPage(View):
             username = request.POST.get('username')
             password = request.POST.get('password')
 
-            user = authenticate(request, username=username, password=password)
+            # Call the custom login API
+            login_api_url = "http://127.0.0.1:8000/api/auth/login/"
+            try:
+                response = requests.post(login_api_url, json={"username": username, "password": password})
+                response.raise_for_status()  # Raise an exception for HTTP errors
 
-            if user is not None:
-                auth.login(request, user)
+                user_data = response.json()  # Extract user data from API response
 
-                return redirect("dashboard-page")
+                # Manually log the user in
+                user = authenticate(username=username, password=password)
+                if user:
+                    login(request, user)  # Use Django's login function to create a session
+                    # Optionally store additional info in the session
+                    request.session['api_token'] = user_data.get("token")  # Adjust if API provides a token
+                    return redirect("dashboard-page")
+                else:
+                    # Authentication failed (this shouldn't happen if API returned success)
+                    return render(request, 'app/login_form.html', {
+                        'loginform': form,
+                        'error_message': "Login failed. Please try again.",
+                    })
+            except requests.exceptions.RequestException:
+                return render(request, 'app/login_form.html', {
+                    'loginform': form,
+                    'error_message': "Invalid username or password. Please try again.",
+                })
         else:
             return render(request, 'app/login_form.html', {'loginform': form})
 
@@ -109,9 +145,34 @@ class RegisterPage(View):
     def post(self, request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect("login-page")
+            # Extract data from the form
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            email = form.cleaned_data['email']  # Adjust this if your form includes an email field
+
+            # API endpoint for registration
+            register_api_url = "http://127.0.0.1:8000/api/auth/register/"
+
+            try:
+                # Make an API call to register the user
+                response = requests.post(register_api_url, json={
+                    "username": username,
+                    "password": password,
+                    "email": email  # Include email if applicable
+                })
+                response.raise_for_status()  # Raise exception for HTTP errors
+
+                # If registration is successful, redirect to the login page
+                return redirect("login-page")
+            except requests.exceptions.RequestException as e:
+                # Handle API errors
+                error_message = response.json().get("error", "An error occurred during registration.")
+                return render(request, 'app/register_form.html', {
+                    'registerform': form,
+                    'error_message': error_message
+                })
         else:
+            # If form validation fails, re-render the form with errors
             return render(request, 'app/register_form.html', {'registerform': form})
 
 
@@ -204,8 +265,27 @@ class TrainModelView(LoginRequiredMixin, View):
         return func(filename)
 
 
+import requests
+
+
 def user_logout(request):
-    auth.logout(request)
+    # API endpoint for logout
+    logout_api_url = "http://127.0.0.1:8000/api/auth/logout/"
+    try:
+        # Get the API token from the session
+        api_token = request.session.get("api_token")
+
+        # Send a POST request to the API to log the user out
+        headers = {"Authorization": f"Token {api_token}"} if api_token else {}
+        response = requests.post(logout_api_url, headers=headers)
+        response.raise_for_status()  # Raise exception for HTTP errors
+    except requests.exceptions.RequestException as e:
+        print(f"Error logging out via API: {e}")
+
+    # Clear the session
+    request.session.flush()
+
+    # Redirect to the starting page
     return redirect("starting-page")
 
 

@@ -1,3 +1,4 @@
+
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
@@ -9,7 +10,9 @@ from django.forms.widgets import PasswordInput, TextInput
 # - Create/Register a user (Model Form)
 
 class CreateUserForm(UserCreationForm):
+
     class Meta:
+
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
@@ -19,10 +22,13 @@ class CreateUserForm(UserCreationForm):
         for field_name in self.fields:
             self.fields[field_name].help_text = None
 
+# - Authenticate a user (Model Form)
+
 class LoginForm(AuthenticationForm):
+
     username = forms.CharField(
         label="Корисничко име",
         widget=TextInput())
     password = forms.CharField(
-        label="Лозинка",
+        label="Пасворд",
         widget=PasswordInput())

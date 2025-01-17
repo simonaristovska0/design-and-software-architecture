@@ -38,6 +38,9 @@ def func(filename):
     new_row = pd.DataFrame([[None] * len(data.columns)], columns=data.columns, index=[tomorrow_date])
     data = pd.concat([data, new_row])
 
+
+
+
     lag = 7
     columns = data.columns
     for i in range(1, lag + 1):
@@ -48,13 +51,18 @@ def func(filename):
     new_row = data.loc[[tomorrow_date]].copy()
     data.drop(index=tomorrow_date, inplace=True)
 
+
+
     data = data.dropna(axis=0)
 
     fetures_za_drop = data.columns[1:6]
     data.drop(fetures_za_drop, axis=1, inplace=True)
 
+
+
     X, Y = data.drop("Цена на последна трансакција", axis=1), data['Цена на последна трансакција']
     X_train, X_val, Y_train, Y_val = train_test_split(X, Y, test_size=0.3, shuffle=False)
+
 
     skalar_future = MinMaxScaler()
     scaler = MinMaxScaler()
@@ -68,15 +76,9 @@ def func(filename):
     X_val = X_val.reshape(X_val.shape[0], lag, X_val.shape[1] // lag)
 
     # Prepare the input for tomorrow's prediction FUTURE PREDICTION
-    print(new_row.drop(
-        ['Цена на последна трансакција', 'Просечна цена', '%пром.', 'Количина', 'Промет во БЕСТ во денари',
-         'Вкупен промет во денари'], axis=1))
-    print(new_row.drop(
-        ['Цена на последна трансакција', 'Просечна цена', '%пром.', 'Количина', 'Промет во БЕСТ во денари',
-         'Вкупен промет во денари'], axis=1).values)
-    new_row_input = new_row.drop(
-        ['Цена на последна трансакција', 'Просечна цена', '%пром.', 'Количина', 'Промет во БЕСТ во денари',
-         'Вкупен промет во денари'], axis=1).values
+    print(new_row.drop(['Цена на последна трансакција','Просечна цена','%пром.','Количина','Промет во БЕСТ во денари','Вкупен промет во денари'], axis=1))
+    print(new_row.drop(['Цена на последна трансакција','Просечна цена','%пром.','Количина','Промет во БЕСТ во денари','Вкупен промет во денари'], axis=1).values)
+    new_row_input = new_row.drop(['Цена на последна трансакција','Просечна цена','%пром.','Количина','Промет во БЕСТ во денари','Вкупен промет во денари'], axis=1).values
     new_row_input = skalar_future.transform(new_row_input)
     new_row_input = new_row_input.reshape(1, lag, new_row_input.shape[1] // lag)
 
@@ -104,6 +106,8 @@ def func(filename):
     # Calculate statistics
     r2 = r2_score(Y_val, preds)
     mse = mean_squared_error(Y_val, preds)
+
+
 
     # Create JSON response
     response_data = {
