@@ -1,0 +1,41 @@
+services:
+  data_service:
+    build:
+      context: .
+      dockerfile: ./backend/services/data_service/Dockerfile
+    container_name: data_service
+    volumes:
+      - ./backend/services/data_service:/app/backend/services/data_service
+      - ./proekt:/app/proekt  # Include the main project directory
+    ports:
+      - "8001:8000"  # Expose port 8001
+    environment:
+      - PYTHONPATH=/app
+
+  user_service:
+    build:
+      context: .
+      dockerfile: ./backend/services/user_service/Dockerfile
+    container_name: user_service
+    volumes:
+      - ./backend/services/user_service:/app/backend/services/user_service
+      - ./proekt:/app/proekt
+    ports:
+      - "8002:8000"
+    environment:
+      - PYTHONPATH=/app
+
+  django_app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: django_app
+    volumes:
+      - ./:/app
+      - ./templates:/app/templates
+      - ./stilovi:/app/stilovi
+    ports:
+      - "8000:8000"  # Expose the main Django app port
+    environment:
+      - DJANGO_SETTINGS_MODULE=proekt.settings
+    command: python manage.py runserver 0.0.0.0:8000

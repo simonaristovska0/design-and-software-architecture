@@ -13,8 +13,8 @@ RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r re
 # Copy the rest of the application files
 COPY . .
 
-# Expose the port for Django
-EXPOSE 8000
+# Expose the port for the service
+EXPOSE 8002
 
-# Run the Django app
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run the user service
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8002"]

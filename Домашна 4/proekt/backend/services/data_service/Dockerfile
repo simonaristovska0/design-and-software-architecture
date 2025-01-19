@@ -2,7 +2,7 @@
 FROM python:3.10-slim
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /app/backend/services/data_service
 
 # Copy only the necessary files
 COPY requirements.txt .
@@ -13,8 +13,11 @@ RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r re
 # Copy the rest of the application files
 COPY . .
 
-# Expose the port for Django
-EXPOSE 8000
+# Set the PYTHONPATH to include the project root
+ENV PYTHONPATH="/app"
 
-# Run the Django app
+# Expose the port for the service
+EXPOSE 8001
+
+# Run the data service
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

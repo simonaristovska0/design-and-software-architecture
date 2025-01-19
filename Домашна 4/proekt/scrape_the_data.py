@@ -34,7 +34,7 @@ def FILTER_1_fetch_issuer_codes():
 def FILTER_3_scrape_to_csv(issuer_code, od_date=date.today() - datetime.timedelta(days=365 * 10)):
     attribute_names = ['Датум', 'Цена на последна трансакција', 'Мак.', 'Мин.', 'Просечна цена', '%пром.', 'Количина',
                        'Промет во БЕСТ во денари', 'Вкупен промет во денари']
-    data_folder_path = './Data/'
+    data_folder_path = 'Data/'
     if not os.path.exists(data_folder_path):
         os.makedirs(data_folder_path)
 
@@ -91,7 +91,7 @@ def scrape_data(raw_html):
 # Helper function
 # If a csv file does not exist it returns False, elsewhere it returns the most recent date written in the csv file.
 def return_the_last_date_if_it_exists(issuer_code):
-    csv_path = f'./Data/data_for_{issuer_code}.csv'
+    csv_path = f'Data/data_for_{issuer_code}.csv'
     if not os.path.exists(csv_path):
         return False
     df = pd.read_csv(csv_path, parse_dates=['Датум'], dayfirst=True)
