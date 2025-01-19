@@ -183,7 +183,7 @@ class SearchResultsViewFundamentalna(LoginRequiredMixin, View):
     def get(self, request):
         query = request.GET.get('query')
 
-        base_dir = os.path.join(settings.BASE_DIR, 'fundumental_analysis', 'pdf_downloads', query)
+        base_dir = os.path.join(settings.BASE_DIR, 'fundamental_analysis', 'pdf_downloads', query)
 
         sentiment_file = os.path.join(base_dir, f'sentiment_{query}_combined.txt')
         translated_file = os.path.join(base_dir, f'translated_{query}_combined.txt')
